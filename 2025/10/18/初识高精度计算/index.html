@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"juster955.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="时间经过：2025.10.10-2025.10.15  那是平平无奇的一天，我打开了洛谷，看见了一道题，要求进行阶乘的累加。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识高精度计算">
+<meta property="og:url" content="https://juster955.github.io/2025/10/18/%E5%88%9D%E8%AF%86%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97/index.html">
+<meta property="og:site_name" content="影灭的博客">
+<meta property="og:description" content="时间经过：2025.10.10-2025.10.15  那是平平无奇的一天，我打开了洛谷，看见了一道题，要求进行阶乘的累加。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://juster955.github.io/2025/10/18/%E5%88%9D%E8%AF%86%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97/%E4%B8%80%E9%A1%BF%E6%93%8D%E4%BD%9C%E7%8C%9B%E5%A6%82%E8%99%8E.jpg">
+<meta property="article:published_time" content="2025-10-18T11:27:44.000Z">
+<meta property="article:modified_time" content="2025-10-19T08:30:38.992Z">
+<meta property="article:author" content="影灭">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="入门">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://juster955.github.io/2025/10/18/%E5%88%9D%E8%AF%86%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97/%E4%B8%80%E9%A1%BF%E6%93%8D%E4%BD%9C%E7%8C%9B%E5%A6%82%E8%99%8E.jpg">
+
+
+<link rel="canonical" href="https://juster955.github.io/2025/10/18/%E5%88%9D%E8%AF%86%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://juster955.github.io/2025/10/18/%E5%88%9D%E8%AF%86%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97/","path":"2025/10/18/初识高精度计算/","title":"初识高精度计算"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>初识高精度计算 | 影灭的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">影灭的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">影灭</p>
+  <div class="site-description" itemprop="description">去码头整点薯条  :P</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://juster955.github.io/2025/10/18/%E5%88%9D%E8%AF%86%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="影灭">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="影灭的博客">
+      <meta itemprop="description" content="去码头整点薯条  :P">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="初识高精度计算 | 影灭的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初识高精度计算
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-10-18 19:27:44" itemprop="dateCreated datePublished" datetime="2025-10-18T19:27:44+08:00">2025-10-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-10-19 16:30:38" itemprop="dateModified" datetime="2025-10-19T16:30:38+08:00">2025-10-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%8E%A2%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">技术探索</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><strong>时间经过</strong>：2025.10.10-2025.10.15</p>
+<hr>
+<p>那是平平无奇的一天，我打开了洛谷，看见了一道题，要求进行阶乘的累加。</p>
+<span id="more"></span>
+<p>题目上赫然写着“高精度”，但我并不知道这是什么意思。于是我忽略了这三个字。</p>
+<p>我心想，这也太简单了啊，秒了。</p>
+<p>一顿操作猛如虎，一半AC一半WA。<br><a href="一顿操作猛如虎.jpg" data-fancybox="gallery" data-caption="一顿操作猛如虎"><br>  <img src="一顿操作猛如虎.jpg" width="100%" alt="一顿操作猛如虎"><br></a></p>
+<p>上网搜索“高精度计算”，就好像打开了一道新的大门。<br>接下来的几天，我一有空就在研究这个，加法，乘法，洛谷OJ通过了之后又研究减法，除法。一直到放弃。<br>在这过程中，我基本上是一边查一边写，一边问AI一边写<br>确实又对函数和数组熟悉了不少</p>
+<p>不多说了，看看代码。</p>
+<details>
+<summary>点击查看我都写了什么东西</summary>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//高精度计算</span></span><br><span class="line"><span class="comment">//仅支持正整数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//存在的问题</span></span><br><span class="line"><span class="comment">//1.输入的数字还是int，不能支持很大的数字</span></span><br><span class="line"><span class="comment">//改进思路：或许可以直接用循环输入数组</span></span><br><span class="line"><span class="comment">//2.各个函数对于边界的处理，我并不确定是否正确，比如i&lt;LEN还是i&lt;LEN-1还是i&lt;LEN-2</span></span><br><span class="line"><span class="comment">//改进思路：以后再看</span></span><br><span class="line"><span class="comment">//3.sub函数和div函数内部，有可能会互换num1和num2，这就破坏了输入的数据</span></span><br><span class="line"><span class="comment">//改进思路：使用临时变量，比如temp_num1, temp_num2</span></span><br><span class="line"><span class="comment">//4.变量名不够清晰，太多temp temp_等诸如此类含糊不清的名字，不便于维护</span></span><br><span class="line"><span class="comment">//改进思路：以后逐渐养成习惯再说</span></span><br><span class="line"><span class="comment">//5.太习惯用//就不会用/**/了</span></span><br><span class="line"><span class="comment">//改进思路：下次一定</span></span><br><span class="line"><span class="comment">//6.不行了，除法还是有问题。我放弃了。。以后再说吧。我尽力了。</span></span><br><span class="line"><span class="comment">//7.不行，我又来了。继续战斗。</span></span><br><span class="line"><span class="comment">//8.不行了。写的太长了，AI已经说不清楚了。我决定放弃。日后再战。</span></span><br><span class="line"><span class="comment">//9.诶，我要是先写高精度除以低精度，再写高精度除以高精度呢，或许能逻辑更清晰一些（</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">cmp</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> LEN)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> result[], <span class="type">int</span> LEN)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> result[], <span class="type">int</span> LEN)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">mul</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> result[], <span class="type">int</span> LEN)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">div</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> result[], <span class="type">int</span> remainder[], <span class="type">int</span> LEN)</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//main函数是输入数字ab，输出加减乘除</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//输入</span></span><br><span class="line">	<span class="type">int</span> a, b;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//数字a, b转换成数组num1[], num2[]</span></span><br><span class="line">	<span class="comment">//目前写的是最大1000位</span></span><br><span class="line">	<span class="type">int</span> num1[<span class="number">1000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">int</span> num2[<span class="number">1000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(a &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		num1[i] = a % <span class="number">10</span>;</span><br><span class="line">		a /= <span class="number">10</span>;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(b &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		num2[j] = b % <span class="number">10</span>;</span><br><span class="line">		b /= <span class="number">10</span>;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//结果初始化</span></span><br><span class="line">	<span class="type">int</span> result1[<span class="number">1000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">int</span> result2[<span class="number">1000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">int</span> result3[<span class="number">1000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">int</span> result4[<span class="number">1000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">int</span> remainder[<span class="number">1000</span>] = &#123;<span class="number">0</span>&#125;;     <span class="comment">//余数，仅除法用</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//运算</span></span><br><span class="line">	<span class="comment">//想用哪个，就取消哪个的注释，就好了</span></span><br><span class="line">	<span class="comment">//add(num1, num2, result1, 1000);</span></span><br><span class="line">	<span class="comment">//int judge = sub(num1, num2, result2, 1000);</span></span><br><span class="line">	<span class="comment">//mul(num1, num2, result3, 1000);</span></span><br><span class="line">	div(num1, num2, result4, remainder, <span class="number">1000</span>);</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//计算结果总位数len</span></span><br><span class="line">	<span class="comment">//记得改result几</span></span><br><span class="line">	<span class="type">int</span> len;</span><br><span class="line">	<span class="keyword">for</span>(len = <span class="number">999</span>; len&gt;=<span class="number">0</span>; len--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(result4[len] != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	len++;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//输出结果</span></span><br><span class="line">	<span class="comment">//记得改result几</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//以下仅加法乘法适用</span></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	for(int j = len-1; j&gt;=0; j--)</span></span><br><span class="line"><span class="comment">	&#123;</span></span><br><span class="line"><span class="comment">		printf(&quot;%d&quot;, result4[j]);</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//以下仅除法适用</span></span><br><span class="line">	<span class="comment">//len_是余数remainder总位数</span></span><br><span class="line">	<span class="type">int</span> len_;</span><br><span class="line">	<span class="keyword">for</span>(len_ = <span class="number">999</span>; len_&gt;=<span class="number">0</span>; len_--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(result4[len_] != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	len_++;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j = len<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, result4[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j = len_<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, remainder[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//以下仅减法适用</span></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	switch(judge)</span></span><br><span class="line"><span class="comment">	&#123;</span></span><br><span class="line"><span class="comment">		case 0:</span></span><br><span class="line"><span class="comment">			printf(&quot;0&quot;);</span></span><br><span class="line"><span class="comment">			break;</span></span><br><span class="line"><span class="comment">		case -1:</span></span><br><span class="line"><span class="comment">			printf(&quot;-&quot;);</span></span><br><span class="line"><span class="comment">		case 1:</span></span><br><span class="line"><span class="comment">			for(int j = len-1; j&gt;=0; j--)</span></span><br><span class="line"><span class="comment">			&#123;</span></span><br><span class="line"><span class="comment">				printf(&quot;%d&quot;, result2[j]);</span></span><br><span class="line"><span class="comment">			&#125;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//比较num1[LEN]和num2[LEN]大小</span></span><br><span class="line"><span class="comment">//仅限于这里高精度比大小，因为是逆序排列的</span></span><br><span class="line"><span class="comment">//num1 = num2返回0</span></span><br><span class="line"><span class="comment">//num1 &gt; num2返回1</span></span><br><span class="line"><span class="comment">//num1 &lt; num2返回-1</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">cmp</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> LEN)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//i是num1最高位索引</span></span><br><span class="line">	<span class="type">int</span> i = LEN<span class="number">-1</span>;                    <span class="comment">//LEN位的num1，最大的索引是num1[LEN-1]</span></span><br><span class="line">	<span class="keyword">for</span>(; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(num1[i] != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//j是num2最高位索引</span></span><br><span class="line">	<span class="type">int</span> j = LEN<span class="number">-1</span>;                    <span class="comment">//LEN位的num1，最大的索引是num1[LEN-1]</span></span><br><span class="line">	<span class="keyword">for</span>(; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(num2[j] != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//max是i和j较大者，也就是需要比较大小的最高位</span></span><br><span class="line">	<span class="type">int</span> max = (i &gt; j ? i : j);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//我觉得no是序号的意思</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> no = max; no &gt;= <span class="number">0</span>; no--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(num1[no] &gt; num2[no])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(num1[no] &lt; num2[no])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//最多能处理LEN位数</span></span><br><span class="line"><span class="comment">//传入的num1和num2, [0]是个位数，[1]是十位数</span></span><br><span class="line"><span class="comment">//result是一个数组, [0]是个位数，[1]是十位数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> result[], <span class="type">int</span> LEN)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//num1 + num2 = result</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; LEN; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		result[i] = num1[i] + num2[i];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//处理进位</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= LEN<span class="number">-1</span>; j++)            <span class="comment">//后续涉及到result[j+1]，所以要j &lt;= LEN-1，避免数组越界</span></span><br><span class="line">	&#123;		</span><br><span class="line">		result[j+<span class="number">1</span>] += result[j] / <span class="number">10</span>;</span><br><span class="line">		result[j] %= <span class="number">10</span>; 	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//最多能处理LEN位数，但结果result也要是少于LEN位数！！！</span></span><br><span class="line"><span class="comment">//若result为负数，则应少于LEN-1位数！！！</span></span><br><span class="line"><span class="comment">//传入的num1和num2, [0]是个位数，[1]是十位数</span></span><br><span class="line"><span class="comment">//result是一个数组, [0]是个位数，[1]是十位数</span></span><br><span class="line"><span class="comment">//result = 0则return 0</span></span><br><span class="line"><span class="comment">//result &gt; 0则return 1</span></span><br><span class="line"><span class="comment">//result &lt; 0则return -1</span></span><br><span class="line"><span class="comment">//本函数只传回绝对值结果result，请在函数外负责负号&#x27;-&#x27;的打印</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sub</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> result[], <span class="type">int</span> LEN)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//result = |num1 - num2| </span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(cmp(num1, num2, LEN) == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">memset</span>(result, <span class="number">0</span>, LEN * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> judge = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//检查是否num1 &gt;= num2</span></span><br><span class="line">	<span class="comment">//如果num1 &lt; num2则使num1和num2互换。judge记为1，一会输出负数</span></span><br><span class="line">	<span class="keyword">if</span>(cmp(num1, num2, LEN) &lt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		judge = <span class="number">1</span>;</span><br><span class="line">		<span class="type">int</span> temp[LEN] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">		<span class="built_in">memcpy</span>(temp, num1, LEN*<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">		<span class="built_in">memcpy</span>(num1, num2, LEN*<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">		<span class="built_in">memcpy</span>(num2, temp, LEN*<span class="keyword">sizeof</span>(<span class="type">int</span>)); </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//计算result的绝对值</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= (LEN<span class="number">-1</span><span class="number">-1</span>); i++)         <span class="comment">//result数组初始化只到了LEN，所以最多只能到result[LEN-1]</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(num1[i] &gt;= num2[i])</span><br><span class="line">		&#123;</span><br><span class="line">			result[i] = num1[i] - num2[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			result[i] = num1[i] + <span class="number">10</span> - num2[i];</span><br><span class="line">			num1[i+<span class="number">1</span>] -= <span class="number">1</span>;                     <span class="comment">//这里涉及到了num1[i+1]，所以i+1 &lt;= LEN-1即i &lt;= LEN-2</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(judge == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//最多能处理LEN位数，但结果result也要是少于LEN位数！！！</span></span><br><span class="line"><span class="comment">//传入的num1和num2，[0]是个位数，[1]是十位数</span></span><br><span class="line"><span class="comment">//result是一个数组，[0]是个位数，[1]是十位数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">mul</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> result[], <span class="type">int</span> LEN)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//num1 * num2 = result</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; LEN ;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; LEN; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			result[i + j] += num1[i] * num2[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; LEN<span class="number">-1</span>; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		result[j+<span class="number">1</span>] += result[j] / <span class="number">10</span>;</span><br><span class="line">		result[j] %= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">div</span><span class="params">(<span class="type">int</span> num1[], <span class="type">int</span> num2[], <span class="type">int</span> result[], <span class="type">int</span> remainder[], <span class="type">int</span> LEN)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//num1 ÷ num2 = result ……remainder</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//num1 = num2则商1余0</span></span><br><span class="line">	<span class="keyword">if</span>(cmp(num1, num2, LEN)==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">memset</span>(result, <span class="number">0</span>, LEN * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">		result[<span class="number">0</span>] = <span class="number">1</span>;                                     <span class="comment">//这行能行吗</span></span><br><span class="line">		<span class="built_in">memset</span>(remainder, <span class="number">0</span>, LEN * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">		<span class="keyword">return</span>;                                            <span class="comment">//return能行吗</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//num1 &lt; num2则商0余num1</span></span><br><span class="line">	<span class="keyword">if</span>(cmp(num1, num2, LEN) &lt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">memset</span>(result, <span class="number">0</span>, LEN * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">		<span class="built_in">memcpy</span>(remainder, num1, LEN * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">		<span class="keyword">return</span>;                                            <span class="comment">//return能行吗</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//num1 &gt; num2则正常除</span></span><br><span class="line">	<span class="comment">//i是num1最高位索引，num1一共有i+1位</span></span><br><span class="line">	<span class="comment">//求i</span></span><br><span class="line">	<span class="type">int</span> i = LEN<span class="number">-1</span>;                          <span class="comment">//最多LEN位的num1，最大的索引是num1[LEN-1]</span></span><br><span class="line">	<span class="keyword">for</span>(; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(num1[i] != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//j是num2最高位索引，num2一共有j+1位</span></span><br><span class="line">	<span class="comment">//求j</span></span><br><span class="line">	<span class="type">int</span> j = LEN<span class="number">-1</span>;                          <span class="comment">//LEN位的num1，最大的索引是num1[LEN-1]</span></span><br><span class="line">	<span class="keyword">for</span>(; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(num2[j] != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//初始化curr，一会用curr进行试商</span></span><br><span class="line">	<span class="type">int</span> curr[LEN] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> count = i-j; count &lt; LEN; count++)                           <span class="comment">//把count换为正在试商的相关部分</span></span><br><span class="line">	&#123;</span><br><span class="line">		curr[count - (i - j)] = num1[count];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//计算商                                                               m * num2移位，num1 -= m * num2</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> k = i-j; k &gt;= <span class="number">0</span>; k--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> m = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(; m &lt;= <span class="number">10</span>; m++)                                        <span class="comment">//试商m，从0到9</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> m_[LEN] = &#123;<span class="number">0</span>&#125;;                                             <span class="comment">//把m换成数组形式的m_</span></span><br><span class="line">			m_[<span class="number">0</span>] = m;</span><br><span class="line">			</span><br><span class="line">			<span class="type">int</span> mul_[LEN] = &#123;<span class="number">0</span>&#125;;                             <span class="comment">//如果mul_ = m_ * num2 &gt; curr说明已经超了，正确商是m-1</span></span><br><span class="line">			mul(m_, num2, mul_, LEN);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>((cmp(mul_, curr, LEN) &gt; <span class="number">0</span>) &amp;&amp; (m != <span class="number">0</span>))</span><br><span class="line">			&#123;</span><br><span class="line">				m -= <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>((cmp(mul_, curr, LEN) &gt; <span class="number">0</span>) &amp;&amp; (m == <span class="number">0</span>))</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		result[k] = m;                                       <span class="comment">//试商结束</span></span><br><span class="line">		</span><br><span class="line">		<span class="type">int</span> m_[LEN] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">		m_[<span class="number">0</span>] = m;</span><br><span class="line">		<span class="type">int</span> mul_[LEN] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">		mul(m_, num2, mul_, LEN);</span><br><span class="line">		<span class="type">int</span> temp[LEN] = &#123;<span class="number">0</span>&#125;;                                <span class="comment">//curr = curr - num2 * m_ （temp = curr - mul_再curr=temp）       if(k!= 0)  再 * 10 + 下一位[k-1]</span></span><br><span class="line">		sub(curr, mul_, temp, LEN);</span><br><span class="line">		<span class="built_in">memcpy</span>(curr, temp, LEN * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(k != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> no_name = LEN-k; no_name &gt; <span class="number">0</span>; no_name--)        <span class="comment">//给变量起名太难了。。。</span></span><br><span class="line">			&#123;</span><br><span class="line">				curr[no_name] = curr[no_name<span class="number">-1</span>];</span><br><span class="line">			&#125;</span><br><span class="line">			curr[<span class="number">0</span>] = num1[k<span class="number">-1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//计算余数                                               //remainder = num1 - num2 * result  //我靠，AI提示说，最后的curr就是余数</span></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	int mul_[LEN] = &#123;0&#125;;</span></span><br><span class="line"><span class="comment">	mul(num2, result, mul_, LEN);</span></span><br><span class="line"><span class="comment">	sub(num1, mul_, remainder, LEN);</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="built_in">memcpy</span>(remainder, curr, LEN * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//这里什么也没有，你在找什么  :p</span></span><br></pre></td></tr></table></figure>
+</details>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%85%A5%E9%97%A8/" rel="tag"># 入门</a>
+              <a href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag"># C语言</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/10/18/%E6%9E%81%E5%88%9B%E5%B7%A5%E4%BD%9C%E5%AE%A4/" rel="prev" title="极创工作室">
+                  <i class="fa fa-angle-left"></i> 极创工作室
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/02/%E5%86%8D%E8%A7%81%E4%BA%86%EF%BC%8C%E8%BF%87%E5%8E%BB/" rel="next" title="再见了，过去">
+                  再见了，过去 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">影灭</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
