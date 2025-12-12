@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+_multiconfig.yml
+# 忽略我的个人说明书文件夹（整个文件夹）
+博客相关备忘录/
