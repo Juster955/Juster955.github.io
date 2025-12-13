@@ -1,7 +1,7 @@
 ---
 title: 博客捉虫（bug）
 date: 2025-12-13 14:53:56
-tags: [我, 启蒙]
+tags: [我, 启蒙, hexo, github_pages]
 categories: [技术探索]
 ---
 **时间经过**: 2025.12.10-2025.12.12
