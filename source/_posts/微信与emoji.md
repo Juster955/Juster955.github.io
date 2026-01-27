@@ -94,4 +94,8 @@ windows上则一律显示windows的样式
 ***
 致谢：高中同学、舍友、deepseek、我自己
 
-参考文献：我自己用微信的经验与记忆
+参考文献：我自己用微信的经验与记忆<br><br><br><br><br><br>
+## 一些更新
+其实这个也说不上是bug
+当时我问了deepseek，说这有可能是腾讯在性能和效果之间的权衡
+（我读了[《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)，突然觉得我当时就这么声称找到bug有点草率、有点愧疚，所以才来更新这么几句
