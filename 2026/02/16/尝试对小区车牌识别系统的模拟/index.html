@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"juster955.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="时间经过: 2026.2.1-2026.2.15">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尝试对小区车牌识别系统的模拟">
+<meta property="og:url" content="https://juster955.github.io/2026/02/16/%E5%B0%9D%E8%AF%95%E5%AF%B9%E5%B0%8F%E5%8C%BA%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E6%8B%9F/index.html">
+<meta property="og:site_name" content="影灭的博客">
+<meta property="og:description" content="时间经过: 2026.2.1-2026.2.15">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://juster955.github.io/2026/02/16/%E5%B0%9D%E8%AF%95%E5%AF%B9%E5%B0%8F%E5%8C%BA%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E6%8B%9F/v1.jpg">
+<meta property="article:published_time" content="2026-02-15T16:00:32.000Z">
+<meta property="article:modified_time" content="2026-02-15T16:41:36.738Z">
+<meta property="article:author" content="影灭">
+<meta property="article:tag" content="入门">
+<meta property="article:tag" content="工程">
+<meta property="article:tag" content="成长">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://juster955.github.io/2026/02/16/%E5%B0%9D%E8%AF%95%E5%AF%B9%E5%B0%8F%E5%8C%BA%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E6%8B%9F/v1.jpg">
+
+
+<link rel="canonical" href="https://juster955.github.io/2026/02/16/%E5%B0%9D%E8%AF%95%E5%AF%B9%E5%B0%8F%E5%8C%BA%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E6%8B%9F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://juster955.github.io/2026/02/16/%E5%B0%9D%E8%AF%95%E5%AF%B9%E5%B0%8F%E5%8C%BA%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E6%8B%9F/","path":"2026/02/16/尝试对小区车牌识别系统的模拟/","title":"尝试对小区车牌识别系统的模拟"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>尝试对小区车牌识别系统的模拟 | 影灭的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">影灭的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">一、引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BB%E8%A6%81%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">二、主要过程与内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0%EF%BC%89AI"><span class="nav-number">2.1.</span> <span class="nav-text">0）AI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-5%EF%BC%89%E5%8A%A8%E6%89%8B%E5%89%8D"><span class="nav-number">2.2.</span> <span class="nav-text">0.5）动手前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%89%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB"><span class="nav-number">2.3.</span> <span class="nav-text">1）数字识别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E8%B0%83YOLO"><span class="nav-number">2.3.1.</span> <span class="nav-text">微调YOLO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95PaddleOCR"><span class="nav-number">2.3.2.</span> <span class="nav-text">尝试PaddleOCR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9EasyOCR"><span class="nav-number">2.3.3.</span> <span class="nav-text">选择EasyOCR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%89%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.4.</span> <span class="nav-text">2）后端数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%89%E5%89%8D%E7%AB%AF%E6%93%8D%E4%BD%9C%E7%95%8C%E9%9D%A2"><span class="nav-number">2.5.</span> <span class="nav-text">3）前端操作界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%89%E7%A1%AC%E4%BB%B6%E7%9A%84%E9%97%B8%E9%97%A8%E6%8E%A7%E5%88%B6"><span class="nav-number">2.6.</span> <span class="nav-text">4）硬件的闸门控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%89Git%E4%B8%8EGithub%E4%B8%8E%E7%89%88%E6%9C%AC"><span class="nav-number">2.7.</span> <span class="nav-text">5）Git与Github与版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%EF%BC%89%E8%80%83%E8%99%91%E5%B7%A5%E7%A8%8B%E7%9A%84%E8%BF%81%E7%A7%BB"><span class="nav-number">2.8.</span> <span class="nav-text">6）考虑工程的迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A%EF%BC%89%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%9C%A8%E6%91%84%E5%83%8F%E5%A4%B4"><span class="nav-number">2.8.1.</span> <span class="nav-text">A）数字识别在摄像头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B%EF%BC%89%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9C%A8%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA"><span class="nav-number">2.8.2.</span> <span class="nav-text">B）后端数据库在电脑主机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C%EF%BC%89%E5%89%8D%E7%AB%AF%E6%93%8D%E4%BD%9C%E7%95%8C%E9%9D%A2%E5%9C%A8%E7%94%B5%E8%84%91%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">2.8.3.</span> <span class="nav-text">C）前端操作界面在电脑浏览器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D%EF%BC%89%E7%A1%AC%E4%BB%B6%E7%9A%84%E9%97%B8%E9%97%A8%E6%8E%A7%E5%88%B6%E5%9C%A8%E7%89%B9%E5%AE%9A%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.8.4.</span> <span class="nav-text">D）硬件的闸门控制在特定硬件系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%BB%93%E8%AE%BA%E4%B8%8E%E8%AE%A8%E8%AE%BA"><span class="nav-number">3.</span> <span class="nav-text">三、结论与讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0%EF%BC%89%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93"><span class="nav-number">3.1.</span> <span class="nav-text">0）个人总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A%EF%BC%89v1%E9%83%A8%E5%88%86"><span class="nav-number">3.1.1.</span> <span class="nav-text">A）v1部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B%EF%BC%89v2%E9%83%A8%E5%88%86"><span class="nav-number">3.1.2.</span> <span class="nav-text">B）v2部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%89%E5%90%88%E6%B3%95%E6%80%A7"><span class="nav-number">3.2.</span> <span class="nav-text">1）合法性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%89%E6%9C%AA%E6%9D%A5%E6%96%B9%E5%90%91"><span class="nav-number">3.3.</span> <span class="nav-text">2）未来方向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%89%E5%B8%B8%E8%A7%81%E6%80%A7"><span class="nav-number">3.4.</span> <span class="nav-text">3）常见性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%89%E6%84%8F%E4%B9%89"><span class="nav-number">3.5.</span> <span class="nav-text">4）意义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%87%B4%E8%B0%A2"><span class="nav-number">4.</span> <span class="nav-text">四、致谢</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">影灭</p>
+  <div class="site-description" itemprop="description">去码头整点薯条  :P</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://juster955.github.io/2026/02/16/%E5%B0%9D%E8%AF%95%E5%AF%B9%E5%B0%8F%E5%8C%BA%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E6%8B%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="影灭">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="影灭的博客">
+      <meta itemprop="description" content="去码头整点薯条  :P">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="尝试对小区车牌识别系统的模拟 | 影灭的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          尝试对小区车牌识别系统的模拟
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-02-16 00:00:32 / 修改时间：00:41:36" itemprop="dateCreated datePublished" datetime="2026-02-16T00:00:32+08:00">2026-02-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%8E%A2%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">技术探索</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><strong>时间经过</strong>: 2026.2.1-2026.2.15</p>
+<hr>
+<span id="more"></span>  
+
+<h1 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h1><p>寒假的一天，我正要出门，却在楼下的三轮车上看见了一个假的车牌。这个车牌是用来应付小区门口的门禁的<br>在我们小区门口，有一个摄像头和横杆。当一辆车开到小区门口时，摄像头识别到车牌号，横杆就会升起，过一段时间再落下<br>我突然觉得，这个东西好像并不是很难，是不是我也可以做一个啊<br>我问了一下deepseek，好像确实不是很难，各个部分都不是做不出来<br>于是我就兴奋了起来，并决定尝试一下做一个对小区车牌识别系统的模拟<br>整个系统大概包括数字识别、后端数据库、前端操作界面、硬件的闸门控制等几个部分<br>Github仓库<a target="_blank" rel="noopener" href="https://github.com/Juster955/Simulation_of_the_parking_license_plate_recognition_system">在这里</a></p>
+<h1 id="二、主要过程与内容"><a href="#二、主要过程与内容" class="headerlink" title="二、主要过程与内容"></a>二、主要过程与内容</h1><h2 id="0）AI"><a href="#0）AI" class="headerlink" title="0）AI"></a>0）AI</h2><p>在一开始，我突然有了这样的一个念头：在这个项目中，我想完全不使用AI，而是传统地去搜索引擎寻找陌生的知识<br>但是还没等我正式动手，我就意识到，这太难了。<br>或许是因为传统的方法本来就很难，又或者是因为我现在对AI的依赖太严重了。总之我发现离了AI就好像放下拐杖一样，一种恐惧会突然出现在我脑子里</p>
+<p>我对AI的认识，主要还是在ChatGPT问世之后。而到如今才不过三四年。<br>我直接使用AI，则主要是在通义千问和deepseek出现之后，这也才不过一两年。<br>我没想到，这么短的时间里我就开始害怕失去AI了</p>
+<p>其实在这个项目中，各个部分似乎都不是现在的我能手写的，因为每一个部分难度都不小。我现在真正能做的，或许就是从AI那里<code>ctrl c</code>和<code>ctrl v</code>一堆代码<br>但我想，这也是有意义的吧。毕竟我一直在用LLM的网页端，而非agent，所以真正动手的都是我自己。并且一开始的想法、过程中的思考，基本上也都来自我自己。而且把这一切组装起来也算是一个非凡的经历<br>我相信，AI还只是个辅助的工具<br>只是AI给了我这样的小白，一次动手试试的机会</p>
+<p>（此外，当我正式动手时，我发现AI的话也不能全信。所以说在使用AI之前，一定的前置知识依然是必须的<br>（还有，deepseek现在好厉害。全程我只用了一个对话，我也没感觉有什么很明显的记忆问题。它的上下文记忆能力这么强吗</p>
+<h2 id="0-5）动手前"><a href="#0-5）动手前" class="headerlink" title="0.5）动手前"></a>0.5）动手前</h2><p>我在新建Github库的<code>README.md</code>的时候，想起来了一件事情：Windows和Linux的换行符不一样<br>我问了一下AI，于是决定在项目根目录新建一个<code>.gitattributes</code>文件，写上</p>
+<details>
+<summary>点击查看我的.gitattributes</summary>
+
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 设置文件的行尾为 LF</span><br><span class="line">* text=auto eol=lf</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>再设置<code>git config core.autocrlf false</code><br>这样就能把本地和远程github库的换行符都换成<code>LF</code>了</p>
+<p>另外AI给了我一个自动配置<code>.gitignore</code>的网站，是<a target="_blank" rel="noopener" href="https://www.toptal.com/developers/gitignore">https://www.toptal.com/developers/gitignore</a><br>我输入了<code>Python</code> <code>OpenCV</code> <code>VisualStudioCode</code>，并把搜索的结果复制粘贴到了<code>.gitignore</code>文件</p>
+<p>正式动手时，AI建议我按照Python的<code>Module</code>那样组织项目文件。就是每个模块有个<code>__init__.py</code>那种<br>现在有AI真好啊，可以一下子就帮我取好了很多名字哈哈。比如说我新建了文件夹<code>recognition</code> <code>database</code> <code>ui</code> <code>hardware</code><br>另外AI每次回答中，都会帮我在网上查到很多相当成熟的案例，所以给我的建议都相当的细致。这真是帮了我大忙了。<br>而且由此看来，这个项目早就有相当成熟的案例了，我决非“第一个”。关于这一点，我会在第三部分“结论与讨论”的第3点“常见性”有所讨论的</p>
+<h2 id="1）数字识别"><a href="#1）数字识别" class="headerlink" title="1）数字识别"></a>1）数字识别</h2><p>一开始我给标题起的就是数字识别。但后来我意识到，车牌不止有数字，还有英文字母、汉字、点号<code>·</code>，所以“数字识别”其实是不准确的（<br>在AI建议下，我选择的工作流是这样的：<br>用<code>PaddleOCR</code>进行车牌检测和字符识别，用<code>OpenCV</code>进行图像处理</p>
+<h4 id="微调YOLO"><a href="#微调YOLO" class="headerlink" title="微调YOLO"></a>微调YOLO</h4><p>一开始，我选择用<code>YOLO</code>检测车牌、裁剪后把车牌小图给<code>PaddleOCR</code>进行检测。<br>我尝试在网上搜索训练好的模型权重，但要么未上传<code>.pt</code>文件、要么需要付费下载。这样的话，我就想着微调一下<code>YOLO</code>，让它认识车牌。<br>我从AI那里知道了<code>CCPD</code>这个数据集。但是，怎么下载呢？官方github库只给出了点不开的谷歌云盘链接和巨慢无比的百度网盘链接。<code>issue</code>里有好人分享百度AI Studio的链接但是我没弄明白。我搜到了魔搭的页面并尝试<code>CLI</code>下载数据集但是被<code>Python</code>警告说依赖缺失。Hugging Face找到了<code>CCPD</code>但是也没弄明白。最终我在OpenXLab终于成功用<code>CLI</code>下载了<code>CCPD</code>数据集。这个下载用了好长时间，感觉有半个小时。<br>下载好后，我发现，想要<code>CCPD</code>数据集的<code>.jpg</code>还需要我自己来解压<code>.tar.7z</code>文件。于是我来到7zip官网下载安装，并打开powershell执行<code>7z x CCPD2019.tar.xz -so | 7z x -si -ttar -oCCPD2019</code>。经过一个晚上的解压，发现解压失败了。大概这种大数据集真的不是普通电脑能玩的吧<br>不过也不算是白玩。我看过了AI给的代码，知道了微调模型的流程，还新建了很多文件夹，就差最后一步了而已。</p>
+<h4 id="尝试PaddleOCR"><a href="#尝试PaddleOCR" class="headerlink" title="尝试PaddleOCR"></a>尝试PaddleOCR</h4><p>放弃微调<code>YOLO</code>后，我选择使用<code>PaddleOCR</code>的检测模型和识别模型<br>在<code>pip</code>后测试是否安装成功的时候，发现报错了。原来是我的<code>conda</code>环境用了<code>Python3.13</code>，这对于<code>PaddleOCR</code>来说太新了。那没办法，换一个<code>conda</code>环境再用<code>Python3.10</code>呗。一劳永逸。吃一堑长一智。<br>换了新的<code>conda</code>环境后再<code>pip</code>，测试时又报错了。好像是什么依赖有问题<br>算了，再换一个</p>
+<h4 id="选择EasyOCR"><a href="#选择EasyOCR" class="headerlink" title="选择EasyOCR"></a>选择EasyOCR</h4><p>再试试使用<code>EasyOCR</code>的检测模型和识别模型<br>AI说<code>EasyOCR</code>的检测模型没有那么准，不能直接检测车牌。而我又不想微调了，因为那要么需要下载庞大的数据集，要么需要自己手动画锚框。<br>最后我打算使用<code>EasyOCR</code>的检测模型获得图片中的文字部分，再由<code>EasyOCR</code>的识别模型识别出具体文字是什么，最后再用正则表达式进行过滤<br>但是这个使用<code>EasyOCR</code>和<code>OpenCV</code>的“检测-裁剪-识别-过滤”的流程，被AI指出实时性不高。那也只能先这样了</p>
+<p>从AI那里复制粘贴代码后，尝试运行，发现第一次运行<code>EasyOCR</code>会自动下载模型。好慢啊我天。</p>
+<p>下载大半个小时后……<br>好消息，模型下载成功了<br>坏消息，未识别到车牌<br>原来是正则表达式太严格了，而<code>EasyOCR</code>检测的车牌号的第一个汉字（省级行政区简称）错了，所以没有通过正则表达式</p>
+<p>跟AI一起改了很多次代码，包括<code>OpenCV</code>预处理和更改<code>EasyOCR</code>参数<br>简单的测试了一下，发现有以下问题：</p>
+<ul>
+<li>无法准确识别汉字</li>
+<li>置信度极低（如<code>0.04</code>）</li>
+<li>把<code>A</code>识别成<code>4</code>了<br>但正着的和斜着的倒是都能识别<br>就先这样吧。大数据集也没有，我也不想手工标，Python还有依赖问题，我还能有啥高要求呢</li>
+</ul>
+<h2 id="2）后端数据库"><a href="#2）后端数据库" class="headerlink" title="2）后端数据库"></a>2）后端数据库</h2><p>AI建议，使用<code>SQLite</code><br>我跟AI说，要求后端数据库可以检查传入的车牌号是否在已有的数据库中，有则返回“通过”，没有则返回“不通过”<br>AI自己还加上了手动添加&#x2F;删除允许通过的车牌、列出已有的车牌的功能<br>AI真厉害</p>
+<h2 id="3）前端操作界面"><a href="#3）前端操作界面" class="headerlink" title="3）前端操作界面"></a>3）前端操作界面</h2><p>AI建议，使用<code>Tkinter</code><br>我直接就要求AI组织UI文件架构并给出UI代码</p>
+<p>从这里开始，我基本就完全看不懂代码了。只能是直接对AI的代码执行cv大法（指复制粘贴）</p>
+<p>我靠，AI写的UI太漂亮了，风格简直和我在考科二的时候看见的UI一模一样（</p>
+<p>我发现AI给出的<code>main.py</code>部分代码非常简洁，而主要的识别、数据库检查、界面更新逻辑都封装进了UI部分的代码。原来前端这么忙吗，这我真的才知道（</p>
+<h2 id="4）硬件的闸门控制"><a href="#4）硬件的闸门控制" class="headerlink" title="4）硬件的闸门控制"></a>4）硬件的闸门控制</h2><p>哈，这里其实什么也没有<br>因为输入由UI部分对笔记本电脑摄像头的调用实现，输出则直接<code>print</code>并显示在UI界面<br>那硬件呢？一会再说，这里先按下不表</p>
+<h2 id="5）Git与Github与版本"><a href="#5）Git与Github与版本" class="headerlink" title="5）Git与Github与版本"></a>5）Git与Github与版本</h2><p>在上述过程中，我一直在尝试使用<code>Git</code>把代码上传到<code>Github</code>的仓库。<br>具体来说，我在<code>dev</code>分支进行开发，再合并到<code>main</code>分支。每做好几个模块，我就<code>push</code>一次<br><code>Git</code>真的是一个特别好的功能<br>我看的<code>Git</code>教程在这里<a target="_blank" rel="noopener" href="https://liaoxuefeng.com/books/git/introduction/index.html">https://liaoxuefeng.com/books/git/introduction/index.html</a></p>
+<p>我的<code>Github</code>库好像没有选择<code>license</code>。选哪个好呢？</p>
+<p>此外或许你会发现，前面的东西都是在我笔记本电脑上做的，而非真实应用中的环境。我会把这称作版本v1<br>后面我会尝试考虑，如果这个项目真的落地了，应该在什么样的环境中工作。我会把这称作版本v2</p>
+<h2 id="6）考虑工程的迁移"><a href="#6）考虑工程的迁移" class="headerlink" title="6）考虑工程的迁移"></a>6）考虑工程的迁移</h2><p>先前的过程中，我基本都是在自己的笔记本电脑上做一些东西<br>而经过与AI激烈的讨论，我已经大体知道了该如何迁移到真实的工作环境了</p>
+<h4 id="A）数字识别在摄像头"><a href="#A）数字识别在摄像头" class="headerlink" title="A）数字识别在摄像头"></a>A）数字识别在摄像头</h4><p>技术栈：<code>树莓派</code> <code>YOLO</code> <code>EasyOCR</code> <code>OpenCV</code><br>工作流：树莓派摄像头用<code>YOLO</code>对车牌进行检测，并裁剪小图给门卫处Windows，再由Windows的<code>EasyOCR</code>进行字符识别，并执行判断逻辑。图像处理由<code>OpenCV</code>完成</p>
+<h4 id="B）后端数据库在电脑主机"><a href="#B）后端数据库在电脑主机" class="headerlink" title="B）后端数据库在电脑主机"></a>B）后端数据库在电脑主机</h4><p>技术栈：<code>SQLite</code><br>工作流：收到识别结果后，查看数据库中是否已有识别到的车牌号。如果有则放行，没有则保持横杆不动。同时实现手动增加&#x2F;删除数据库中的车牌号与备注、列出已有的车牌等功能</p>
+<h4 id="C）前端操作界面在电脑浏览器"><a href="#C）前端操作界面在电脑浏览器" class="headerlink" title="C）前端操作界面在电脑浏览器"></a>C）前端操作界面在电脑浏览器</h4><p>技术栈：<code>Flask</code> <code>HTML</code> <code>CSS</code> <code>JavaScript</code><br>工作流：启动程序后，打开浏览器并在地址栏输入<code>localhost:【端口号】</code>，便可见由<code>HTML</code>, <code>CSS</code>, <code>JavaScript</code>搭建的前端页面，且具备手动增加&#x2F;删除&#x2F;查看等功能</p>
+<h4 id="D）硬件的闸门控制在特定硬件系统"><a href="#D）硬件的闸门控制在特定硬件系统" class="headerlink" title="D）硬件的闸门控制在特定硬件系统"></a>D）硬件的闸门控制在特定硬件系统</h4><p>技术栈：<code>STM32</code><br>工作流：接收传来的放行信号后，升起横杆，并在红外装置识别到车辆已通过后，放下横杆</p>
+<h1 id="三、结论与讨论"><a href="#三、结论与讨论" class="headerlink" title="三、结论与讨论"></a>三、结论与讨论</h1><h2 id="0）个人总结"><a href="#0）个人总结" class="headerlink" title="0）个人总结"></a>0）个人总结</h2><h4 id="A）v1部分"><a href="#A）v1部分" class="headerlink" title="A）v1部分"></a>A）v1部分</h4><p>在第一个部分（车牌识别），我真的没想到会这么复杂。算是我简单地亲身体会了一下，深度学习在真实场景中的应用<br>过了第一个部分，我也没想到会这么简单。后端数据库、前端UI页面，几乎就是直接把AI的代码复制粘贴过来。而硬件也不必考虑，直接<code>print</code>结果就可以模拟了。<br>虽然代码是从AI那里复制粘贴的，但是准备运行<code>main.py</code>的时候，还是难免心跳加速<br>果不其然，第一次的时候报错了，说是<code>ImportError: attempted relative import beyond top-level package</code><br>第二次的时候就基本成功了。只是识别的一点都不准哈哈，还有<code>Tkinter</code>的界面并没有显示摄像头拍摄的实时画面<br>第三次的时候，画面也有了，唯一的缺点就是识别的一点都不准了<br>v1完工的时候，这个系统只能识别数字，很难识别字母，几乎完全不能识别汉字。倾斜一些似乎问题不大，暗一些似乎也问题不大。<br>但是v1还有一个问题：它是一直在识别的。如果一辆车被识别成功，横杆升起，在车辆过杆的过程中，可能会突然识别失败，导致横杆落下。那显然是很危险的。所以v2的时候还会更新一个逻辑：如果识别成功，那么横杆就升起一段时间，同时暂停识别，等到横杆落下再启动识别程序<br><a href="v1.jpg" data-fancybox="gallery" data-caption="v1效果"><br>  <img src="v1.jpg" width="50%" alt="v1效果"><br></a></p>
+<h4 id="B）v2部分"><a href="#B）v2部分" class="headerlink" title="B）v2部分"></a>B）v2部分</h4><p>要是后面的车着急怎么办？要是横杆在行车过杆的过程中落下怎么办？<br>所以需要数字识别快一些&#x2F;横杆不可提前落下</p>
+<ul>
+<li>数字识别要想快一些，可以选择更好的识别模型</li>
+<li>想要控制横杆不提前落下，则可在横杆处增加红外检测装置，检测车辆是否已经通过</li>
+</ul>
+<p>在与AI激烈讨论后，我便有了大体思路。但其实这部分的代码我是看不太懂的，在自己电脑上也不太能够测试。那我自己能做的，就只有思考与复制粘贴。所以这部分进行的还蛮快的（</p>
+<p>树莓派和STM32我目前是真的不懂。所以树莓派我只是复制粘贴了相关代码，STM32甚至文件我都没给全。<br>不过好像挺有意思的，或许以后我会学一学吧</p>
+<p>此外我发现一个完整的项目真的太难了，全栈独立完成几乎是不可能的</p>
+<p>在<code>git push origin main</code>后，我在<code>git bash</code>敲下<code>exit</code>，真的是长呼一口气<br>完成了<br>尝试过、努力过，结束了。</p>
+<h2 id="1）合法性"><a href="#1）合法性" class="headerlink" title="1）合法性"></a>1）合法性</h2><p>需要注意的是，车牌的识别应确保合理合法。例如训练数据不应来自非法获取</p>
+<h2 id="2）未来方向"><a href="#2）未来方向" class="headerlink" title="2）未来方向"></a>2）未来方向</h2><p>其实最好的情况下，这个系统应该能够分辨真假车牌号。毕竟我家门口的这个好像就分辨不出来（<br>另外我在想，如果不是对车牌的识别，而是人脸识别呢？或许只需要把数字识别换成人脸识别、把车牌号的后台数据换成人们的姓名，就可以了吧。不过这样的话，数据的收集同样需要考虑隐私问题</p>
+<p>在项目开发过程中，我没有使用之前在教程中见到的TTD（测试驱动开发）（Test-Driven Development）。或许以后可以考虑一下。</p>
+<h2 id="3）常见性"><a href="#3）常见性" class="headerlink" title="3）常见性"></a>3）常见性</h2><p>这个项目，只是起源于我的突发奇想。在一开始，我并没有考虑那么多，而仅仅是为自己新奇的想法感到兴奋与激动，就打算动手了<br>后来在舍友的提醒下，我意识到：这个东西在景区停车场、小区门口等等地方都有着广泛应用<br>再后来，经过在网络上的搜索，我又意识到：其实类似的项目早已层出不穷地出现在互联网上，并且很多方案都已经极其成熟，甚至已经在一些真实的生产环境中落地，例如这篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/ml15252729822/article/details/154004361">CSDN的博客</a>，以及这篇<a target="_blank" rel="noopener" href="https://developer.baidu.com/article/detail.html?id=3674731">百度开发者中心的文章</a>，甚至还有arxiv的论文</p>
+<h2 id="4）意义"><a href="#4）意义" class="headerlink" title="4）意义"></a>4）意义</h2><p>如上所说，这其实是一个早已经过前人研究的、比较成熟的项目。所以在网络上检索到那些成熟的方案时，我不免会质疑自己做的这个东西意义何在<br>或许，别人的终究是别人的，自己的才是自己的。我才刚刚入门这个领域，幻想做出一个别人没做过的项目才是天方夜谭。所以当作“家庭作业”一般对待，也许才是我对它应该有的态度<br>不管怎么说，这么一堆东西下来，我确实是：</p>
+<ul>
+<li>理解了如何组织Python的项目文件</li>
+<li>知道了使用Git的大体流程</li>
+<li>能几乎独立看懂AI写的预处理CCPD数据集、微调YOLO的代码</li>
+<li>大概知道了怎么处理数据集、怎么微调一个预训练模型</li>
+<li>大概了解了前后端是如何协作的</li>
+<li>在正式动手前，能够比较发散地思考问题</li>
+<li>初步能做到以项目实际落地的角度细致考虑问题</li>
+<li>意识到一个完整项目的复杂性</li>
+</ul>
+<p>总之是收获颇丰啊</p>
+<h1 id="四、致谢"><a href="#四、致谢" class="headerlink" title="四、致谢"></a>四、致谢</h1><p>感谢我自己，感谢自己对生活的细致观察和强烈的好奇心<br>感谢大学舍友和高中同学对我的支持<br>感谢deepseek和互联网。不然的话，如果只有我自己是做不出来这个东西的</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%85%A5%E9%97%A8/" rel="tag"># 入门</a>
+              <a href="/tags/%E6%88%90%E9%95%BF/" rel="tag"># 成长</a>
+              <a href="/tags/%E5%B7%A5%E7%A8%8B/" rel="tag"># 工程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/01/23/%E5%88%9D%E8%AF%95%E5%A4%A7%E5%88%9B/" rel="prev" title="初试大创">
+                  <i class="fa fa-angle-left"></i> 初试大创
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">影灭</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
