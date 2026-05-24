@@ -15,6 +15,16 @@ toc: false
 
 （如果日后我想到了更好一些的分享方式，也许这个地方还会再更新的吧。）
 
+- [Ac-Wiki 大学生的百科全书](https://ac-wiki.org/)
+- [关于西电计科本科学习的一些经验分享与资料汇总](https://zhuanlan.zhihu.com/p/652836971)
+- [XidianCS - 西安电子科技大学计算机科学与技术课程资源](https://github.com/SincereXIA/XidianCS)
+- [放 PPT 之前，请你注意这一些！](https://www.mf8.biz/ppt-tips)
+- [计算机保研指南](https://csbaoyan.top/)
+- [保研定位](https://vote.axi404.top/)
+- [西安电子科技大学生存手册](https://survivexdu.github.io/SurviveXDU/)
+
+<br><br>
+
 - [你缺失的那门计算机课](https://www.criwits.top/missing/)
 - [Github学生认证及学生包申请指南](https://github.com/JimmyLing233/Github-Student-Certification-Guide)
 - [《动手学深度学习》(d2l)网站](https://zh-v2.d2l.ai/index.html)
@@ -29,6 +39,10 @@ toc: false
 - [江协科技的STM32教程](https://www.bilibili.com/video/BV1th411z7sn)
 - [CS61A 2024 B站翻译视频](https://www.bilibili.com/video/BV1sy411z7nA)
 - [CS61A 网站 国内翻译版](https://www.learncs.site/docs/curriculum-resource/cs61a)
+- <a href="https://www.bilibili.com/video/BV1ys411472E" target="_blank" rel="noreferrer">【官方双语/合集】线性代数的本质 - 系列合集</a>
+- [OI Wiki](https://oi-wiki.org/)
+
+<br><br>
 
 
 未完待续……
