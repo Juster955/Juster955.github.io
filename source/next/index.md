@@ -25,6 +25,13 @@ toc: false
 
 <br><br>
 
+- [CanisAlpha 的考研数学笔记站](https://github.com/BlandAlpha/obsidian_math)
+- [寻路之南](https://cs4ncu.space/)
+- [入入入入门（fén）综述](https://xp0int-team.feishu.cn/wiki/wikcnnWbXXGELt1xHkyBhvdQKrh)
+- [0xFFFF](https://0xffff.one/)
+
+<br><br>
+
 - [你缺失的那门计算机课](https://www.criwits.top/missing/)
 - [Github学生认证及学生包申请指南](https://github.com/JimmyLing233/Github-Student-Certification-Guide)
 - [《动手学深度学习》(d2l)网站](https://zh-v2.d2l.ai/index.html)
