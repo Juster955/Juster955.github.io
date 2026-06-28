@@ -50,7 +50,10 @@ toc: false
 - [CS61A 2024 B站翻译视频](https://www.bilibili.com/video/BV1sy411z7nA)
 - [CS61A 网站 国内翻译版](https://www.learncs.site/docs/curriculum-resource/cs61a)
 - <a href="https://www.bilibili.com/video/BV1ys411472E" target="_blank" rel="noreferrer">【官方双语/合集】线性代数的本质 - 系列合集</a>
-- [OI Wiki](https://oi-wiki.org/)
+- [Github教程](https://gitcn.org/getting-started)
+- [learn git branching](https://learngitbranching.js.org/?locale=zh_CN)
+- [一个AI通识课](https://aipath.buynao.com/)
+- [计算机教育中缺失的一课 中文版](https://missing-semester-cn.github.io/)
 
 <br><br>
 
