@@ -121,6 +121,16 @@ aside:
 inject:
   head:
     - '<style>#sidebar .avatar-img,.card-info .avatar-img{display:none!important;}</style>'
+    - '<style>
+      /*对于电脑端和手机端，设置一下不同的index_img*/
+        /* 电脑端用 index_bg.jpg（默认） */
+        /* 手机端覆盖为 index_mobile_bg.jpg */
+        @media screen and (max-width: 768px) {
+          .page:not(.post) #page-header {             /* 这里的 not(.post) 是为了排除文章页，让文章页的顶部大图不受影响 */
+            background-image: url(/images/index_mobile_bg.jpg) !important;
+          }
+        }
+      </style>'
 
 canvas_ribbon:
   enable: true
