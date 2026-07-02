@@ -1,0 +1,147 @@
+# Butterfly theme overrides for Hexo
+
+nav:
+  fixed: true
+  display_title: true
+  display_post_title: true
+
+menu:
+  主页: / || fas fa-home
+  关于: /about/ || fas fa-user
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-th
+  归档: /archives/ || fas fa-archive
+  接下来……: /next/ || fas fa-flag-checkered
+
+
+subtitle:
+  enable: true
+  effect: false
+  sub: 欢迎光临我的小站
+
+# 首页顶部大图
+index_img: /images/index_bg.jpg
+
+# 所有文章页的默认顶部大图
+default_top_img: /images/default_post_img.jpg
+
+# 整个站点的背景颜色
+background: "#1a274a"
+
+mask:
+  header: true
+  footer: false
+
+cover:
+  index_enable: false
+  aside_enable: false
+  archives_enable: false
+
+post_copyright:
+  enable: false
+
+related_post:
+  enable: false
+
+share:
+  use: false
+
+toc:
+  post: true
+  page: false
+  number: false
+  expand: false
+  style_simple: false
+  scroll_percent: true
+
+aside:
+  enable: true
+  hide: false
+  button: true
+  mobile: true
+  position: left
+  display:
+    archive: true
+    tag: true
+    category: true
+  card_author:
+    enable: true
+    description:
+    button:
+      enable: false
+      icon: fab fa-github
+      text: Follow Me
+      link: https://github.com/Juster955
+  card_announcement:
+    enable: false
+    content: This is my Blog
+  card_recent_post:
+    enable: false
+    limit: 5
+    sort: date
+    sort_order:
+  card_newest_comments:
+    enable: false
+    sort_order:
+    limit: 6
+    storage: 10
+    avatar: true
+  card_categories:
+    enable: false
+    limit: 6
+    expand: none
+    sort_order:
+  card_tags:
+    enable: false
+    limit: 20
+    color: false
+    custom_colors:
+    orderby: random
+    order: 1
+    sort_order:
+  card_archives:
+    enable: false
+    type: monthly
+    format: MMMM YYYY
+    order: -1
+    limit: 6
+    sort_order:
+  card_post_series:
+    enable: true
+    series_title: false
+    orderBy: 'date'
+    order: -1
+  card_webinfo:
+    enable: false
+    post_count: true
+    last_push_date: true
+    sort_order:
+    runtime_date:
+
+inject:
+  head:
+    - '<style>#sidebar .avatar-img,.card-info .avatar-img{display:none!important;}</style>'
+
+canvas_ribbon:
+  enable: true
+  size: 120
+  alpha: 0.35
+  zIndex: -1
+  click_to_change: false
+  mobile: false
+
+theme_color:
+  enable: true
+  main: '#5f7ea1'
+  paginator: '#7dabc7'
+  text_selection: '#b5cce0'
+  link_color: '#587599'
+  hr_color: '#7e9abc'
+  code_foreground: '#d06b57'
+  code_background: 'rgba(88, 117, 153, 0.08)'
+  toc_color: '#5f7ea1'
+  meta_color: '#748091'
+  blockquote_padding_color: '#7f9ab9'
+  blockquote_background_color: '#7f9ab9'
+  button_hover: '#d98b67'
+  scrollbar_color: '#5f7ea1'
