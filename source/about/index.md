@@ -1,5 +1,5 @@
 ---
-title: about
+title: 关于
 date: 2025-10-18 09:25:34
 ---
 # 关于我（影灭）(Juster_955)
