@@ -155,3 +155,8 @@ theme_color:
   blockquote_background_color: '#7f9ab9'
   button_hover: '#d98b67'
   scrollbar_color: '#5f7ea1'
+
+# 首页文章摘要显示方式
+index_post_content:
+  method: 1  # 1: description, 2: both, 3: auto_excerpt (默认)
+  length: 500 # 自动摘要截取长度

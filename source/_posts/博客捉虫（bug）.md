@@ -1,14 +1,14 @@
 ---
 title: 博客捉虫（bug）
 date: 2025-12-13 14:53:56
-tags: [我, 启蒙, hexo, github_pages]
+tags: [技术, Hexo, GitHub-Pages]
 categories: [技术探索]
+description: 一天我心血来潮，想给我博客在github库的页面，加一个README.md
 ---
 **时间经过**: 2025.12.10-2025.12.12
 ***
 一天我心血来潮，想给我博客在github库的页面，加一个README.md
 谁成想，一捣鼓就出问题，而且越捣鼓问题越多（倒
-<!-- more -->
 我在hexo文件夹根目录新建了一个文件，重命名为`README.md`，写了几句话，照常`hexo d`，发现github库的页面并没有显示我新写的`readme`
 为啥呢？
 我在AI的帮助下，输入了`git status`。
@@ -61,6 +61,12 @@ AI说，可能是我一开始创建仓库时勾选了“使用README初始化仓
 > - 了解Git的基本操作（如 `clone`, `add`, `commit`, `push`）
 
 流程如下
+> 前排提醒：
+> <这里是来自七个月后的更新>
+> 下边的部署流程是完全AI写的
+> 并且当时是在我重新部署博客的语境下
+> 因此并不具有普适性
+> 下边的内容请各位看官自行辩证看待
 # 博客部署流程
 ## **第一阶段：备份与准备**
 
@@ -280,7 +286,7 @@ hexo clean && hexo g && hexo s
 
 
 ## 第四步：部署网站 (发布到线上)
-```
+```bash
 hexo clean && hexo g && hexo d
 ```
 此命令将生成的静态网站推送到 GitHub 仓库的`gh-pages`分支，GitHub Pages 会自动更新你的公开网站。
@@ -289,7 +295,7 @@ hexo clean && hexo g && hexo d
 
 ## 第五步：备份源码 (重要)
 将你的文章源文件备份到 GitHub 的`main`分支。
-```
+```bash
 git add .
 git commit -m "发布新文章：xxxxx"      # 这里的双引号内，依旧是备注
 git push origin main

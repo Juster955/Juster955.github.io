@@ -1,13 +1,14 @@
 ---
 title: MoeCTF
 date: 2025-10-18 11:05:34
-tags: [入门, 西电, 启蒙]
+tags: [启蒙, 技术, 好玩]
 categories: [竞赛与活动]
+description: 那年暑假，我在家玩的正开心，突然在QQ新生群看见了一条广告（
 ---
 **时间经过**：2025.08.09-2025.10.09
 ***
 那年暑假，我在家玩的正开心，突然在QQ新生群看见了一条广告（
-<!-- more --> 
+
 
 <a href="MoeCTF.jpg" data-fancybox="gallery" data-caption="MoeCTF">
   <img src="MoeCTF.jpg" width="20%" alt="MoeCTF">
