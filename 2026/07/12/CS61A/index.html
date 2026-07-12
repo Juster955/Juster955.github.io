@@ -1,0 +1,918 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CS61A | 影灭的博客</title><meta name="author" content="影灭"><meta name="copyright" content="影灭"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本来是写在语雀里的，但想了想，写进博客吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS61A">
+<meta property="og:url" content="https://juster955.github.io/2026/07/12/CS61A/index.html">
+<meta property="og:site_name" content="影灭的博客">
+<meta property="og:description" content="本来是写在语雀里的，但想了想，写进博客吧。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://juster955.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-07-12T02:02:37.000Z">
+<meta property="article:modified_time" content="2026-07-12T03:44:26.334Z">
+<meta property="article:author" content="影灭">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://juster955.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CS61A",
+  "url": "https://juster955.github.io/2026/07/12/CS61A/",
+  "image": "https://juster955.github.io/img/butterfly-icon.png",
+  "datePublished": "2026-07-12T02:02:37.000Z",
+  "dateModified": "2026-07-12T03:44:26.334Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "影灭",
+      "url": "https://juster955.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://juster955.github.io/2026/07/12/CS61A/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CS61A',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style>#sidebar .avatar-img,.card-info .avatar-img{display:none!important;}</style><style> /*对于电脑端和手机端，设置一下不同的index_img*/ /* 电脑端用 index_bg.jpg（默认） */ /* 手机端覆盖为 index_mobile_bg.jpg */ @media screen and (max-width: 768px) { .page:not(.post) #page-header {             /* 这里的 not(.post) 是为了排除文章页，让文章页的顶部大图不受影响 */ background-image: url(/images/index_mobile_bg.jpg) !important; } } </style><meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-color: #1a274a;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/images/default_post_img.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">影灭的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">CS61A</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">CS61A</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-12T02:02:37.000Z" title="发表于 2026-07-12 10:02:37">2026-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-12T03:44:26.334Z" title="更新于 2026-07-12 11:44:26">2026-07-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%8E%A2%E7%B4%A2/">技术探索</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><strong>时间经过</strong>：2026.04.06-2026.05.22</p>
+<hr>
+<p>这里是我自己做的笔记<br>本来是写在语雀里的，但想了想，写进博客吧。<br>万一能帮到谁呢。<br><small><i>（但其实这只是好听的话罢了</i></small><br><small><i>（终归只是想满足我自己那无处安放的分享欲</i></small></p>
+<p>另外我翻了一下才知道，怎么当初看CS61A才看了两个月啊<br>我感觉可漫长了啊<br>算了算了，不感慨了<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sy411z7nA/">这是我看的课程视频</a><br><a target="_blank" rel="noopener" href="https://www.learncs.site/docs/curriculum-resource/cs61a">这是我看的汉化网站</a><br>下边都是从我在语雀写的笔记直接复制过来的</p>
+<hr>
+<h2 id="1-Welcome"><a href="#1-Welcome" class="headerlink" title="1.Welcome"></a>1.Welcome</h2><ul>
+<li>expression表达式</li>
+<li>call expression调用表达式</li>
+<li>operator运算符</li>
+<li>operand操作数</li>
+</ul>
+<h2 id="2-Functions"><a href="#2-Functions" class="headerlink" title="2.Functions"></a>2.Functions</h2><ul>
+<li>function signature函数签名</li>
+<li>formal parameters形式参数</li>
+<li>negative负</li>
+<li>Built-in function内置函数</li>
+<li>User-defined function</li>
+<li>string literal字符串字面值</li>
+<li>Pure Functions</li>
+<li>Non-Pure Functions</li>
+<li>side effects副作用</li>
+<li>argument参数</li>
+<li>frame</li>
+</ul>
+<br>
+
+<p>python命令</p>
+<ul>
+<li><code>-i</code>交互式</li>
+<li><code>-m doctest</code>文档测试</li>
+</ul>
+<h2 id="3-Control"><a href="#3-Control" class="headerlink" title="3.Control"></a>3.Control</h2><ul>
+<li><code>from operator import truediv, floordiv</code></li>
+<li><code>from operator import mod</code></li>
+</ul>
+<p>函数第一行写<code>&quot;&quot;&quot;注释说明(其中变量可以考虑大写)&quot;&quot;&quot;</code></p>
+<h2 id="4-Higher-Order-Functions"><a href="#4-Higher-Order-Functions" class="headerlink" title="4.Higher-Order Functions"></a>4.Higher-Order Functions</h2><h3 id="（1）控制语句"><a href="#（1）控制语句" class="headerlink" title="（1）控制语句"></a>（1）控制语句</h3><ul>
+<li>控制语句<ul>
+<li><code>while</code></li>
+<li><code>if</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="（2）if存在于编程语言而不仅仅是函数"><a href="#（2）if存在于编程语言而不仅仅是函数" class="headerlink" title="（2）if存在于编程语言而不仅仅是函数"></a>（2）<code>if</code>存在于编程语言而不仅仅是函数</h3><ul>
+<li>条件语句<code>if</code>内，如果不符合条件，会真的跳过。</li>
+<li>但调用语句<code>if_(c, t, f)</code>则是，先把<code>t</code> <code>f</code>都计算好，再传入。不会真的跳过</li>
+</ul>
+<h3 id="（3）逻辑运算符的短路"><a href="#（3）逻辑运算符的短路" class="headerlink" title="（3）逻辑运算符的短路"></a>（3）逻辑运算符的短路</h3><ul>
+<li>逻辑运算符会短路</li>
+<li>并且逻辑运算符的短路，也是真的跳过</li>
+</ul>
+<br>
+
+<ul>
+<li><code>and</code> <code>or</code>返回操作数本身，而不是布尔值</li>
+<li><code>not</code>返回布尔值</li>
+</ul>
+<h3 id="（4）高阶函数"><a href="#（4）高阶函数" class="headerlink" title="（4）高阶函数"></a>（4）高阶函数</h3><ul>
+<li>接受函数作为参数 或 返回一个函数</li>
+<li>作用：<ul>
+<li>以通用方式进行计算</li>
+<li>去除重复的代码</li>
+<li>使函数作用彼此不同、分开</li>
+</ul>
+</li>
+</ul>
+<h3 id="（5）函数作为返回值"><a href="#（5）函数作为返回值" class="headerlink" title="（5）函数作为返回值"></a>（5）函数作为返回值</h3><br>
+
+<h2 id="5-Environments"><a href="#5-Environments" class="headerlink" title="5.Environments"></a>5.Environments</h2><h3 id="（1）嵌套定义的环境"><a href="#（1）嵌套定义的环境" class="headerlink" title="（1）嵌套定义的环境"></a>（1）嵌套定义的环境</h3><h3 id="（2）如何绘制环境图"><a href="#（2）如何绘制环境图" class="headerlink" title="（2）如何绘制环境图"></a>（2）如何绘制环境图</h3><ul>
+<li>定义函数<ul>
+<li>创造函数值</li>
+<li>parent是当前帧</li>
+</ul>
+</li>
+<li>调用函数<ul>
+<li>创造local frame</li>
+<li>复制函数的parent到local frame</li>
+<li>绑定形参</li>
+<li>执行函数主体</li>
+</ul>
+</li>
+</ul>
+<h3 id="（3）函数组合"><a href="#（3）函数组合" class="headerlink" title="（3）函数组合"></a>（3）函数组合</h3><h3 id="（4）lambda表达式"><a href="#（4）lambda表达式" class="headerlink" title="（4）lambda表达式"></a>（4）lambda表达式</h3><h3 id="（5）柯里化currying"><a href="#（5）柯里化currying" class="headerlink" title="（5）柯里化currying"></a>（5）柯里化currying</h3><br>
+
+<h2 id="6-Sound-Optional"><a href="#6-Sound-Optional" class="headerlink" title="6.Sound(Optional)"></a>6.Sound(Optional)</h2><br>
+
+<h2 id="7-Functional-Abstraction"><a href="#7-Functional-Abstraction" class="headerlink" title="7.Functional Abstraction"></a>7.Functional Abstraction</h2><ul>
+<li>Choosing Names<ul>
+<li>meaning or purpose</li>
+<li>type of the value记录在a function stockString</li>
+<li>function names应该包含effect or return value</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-Function-Examples"><a href="#8-Function-Examples" class="headerlink" title="8.Function Examples"></a>8.Function Examples</h2><ul>
+<li><code>print</code>总是返回<code>None</code></li>
+<li>装饰器<ul>
+<li><code>@trace1</code></li>
+<li>装饰器就是为某个函数加一个功能</li>
+</ul>
+</li>
+</ul>
+<p>装饰器就是：</p>
+<ul>
+<li>可以写一个高阶函数，传入函数，返回函数。在高阶函数内就可以加更复杂的逻辑，同时使用传入的函数。</li>
+<li>而如果对一个f写f &#x3D; 高阶函数(f)，那就是相当于更新了f的逻辑为高阶函数的逻辑</li>
+<li>装饰器则是f&#x3D;高阶函数(f)这一写法的简化</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_decorator</span>(<span class="params">func</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Before&quot;</span>)</span><br><span class="line">        func()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;After&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@my_decorator</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">say_hello</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等价于：</span></span><br><span class="line"><span class="comment"># say_hello = my_decorator(say_hello)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="9-Recursion"><a href="#9-Recursion" class="headerlink" title="9.Recursion"></a>9.Recursion</h2><ul>
+<li>递归函数<ul>
+<li>函数主体，直接或间接地，调用他自己</li>
+</ul>
+</li>
+<li>检验<ul>
+<li>检验基础情况</li>
+<li>把函数看作函数抽象，假设是正确的，检验其他情况是否正确</li>
+</ul>
+</li>
+<li>mutual recursion</li>
+<li>递归与迭代之间的转化：<ul>
+<li>递归：传入参数</li>
+<li>迭代：更新值</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-Tree-Recursion"><a href="#10-Tree-Recursion" class="headerlink" title="10.Tree Recursion"></a>10.Tree Recursion</h2><ul>
+<li>counting partitions问题<ul>
+<li><code>Q(n,m)=Q(n,m-1)+Q(n-m,m)</code></li>
+</ul>
+</li>
+<li>汉诺塔</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">    print_move(start, end)</span><br><span class="line">    <span class="keyword">return</span>                    <span class="comment">#别忘了return</span></span><br><span class="line">move_stack(n-<span class="number">1</span>, start, buf)   <span class="comment">#好好想想，应该是什么步骤</span></span><br><span class="line">print_move(start, end)</span><br><span class="line">move_stack(n-<span class="number">1</span>, buf, end)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>信息的传递<ul>
+<li>向上传递<ul>
+<li>通过返回值</li>
+</ul>
+</li>
+<li>向下传递<ul>
+<li>通过参数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-Sequences"><a href="#11-Sequences" class="headerlink" title="11.Sequences"></a>11.Sequences</h2><ul>
+<li>List literals列表关键字</li>
+<li>containers<ul>
+<li><code>in</code></li>
+</ul>
+</li>
+<li>for statement</li>
+<li>Sequence Unpacking<ul>
+<li><code>for x, y in pairs:</code></li>
+</ul>
+</li>
+<li><code>range</code><ul>
+<li><code>range(stop)</code></li>
+<li><code>range(start, stop)</code></li>
+<li>start和end都在数轴对应点的左边<ul>
+<li>好处：</li>
+<li>length  &#x3D; end - start</li>
+<li>element selection &#x3D; start + index</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>list(range(4))</code></li>
+<li><code>for _ in range(3)</code></li>
+<li>Liste Comprehensions<ul>
+<li><code>[&lt;expression&gt; for &lt;element&gt; in &lt;sequence&gt;]</code></li>
+<li><code>[&lt;expression&gt; for &lt;element&gt; in &lt;sequence&gt; if &lt;conditional&gt;]</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="12-Containers"><a href="#12-Containers" class="headerlink" title="12.Containers"></a>12.Containers</h2><ul>
+<li>Slicing</li>
+<li>Sequence Aggregation<ul>
+<li><code>sum</code> -&gt; value          <code>#很强大</code></li>
+<li><code>max</code> -&gt; value</li>
+<li><code>all</code> -&gt; bool</li>
+<li><code>min``any</code></li>
+</ul>
+</li>
+<li>Dictionaries<ul>
+<li>Key有限制<ul>
+<li>不能重复</li>
+<li>不能是List Dictionary等不可哈希的</li>
+</ul>
+</li>
+<li>Value随便</li>
+</ul>
+</li>
+<li>可以使用 .keys()、.values() 或 .items() 访问键、值或键值对的序列。<ul>
+<li><code>for k in d.keys():</code></li>
+<li><code>for v in d.values():</code></li>
+<li><code>for k, v in d.items():</code></li>
+</ul>
+</li>
+<li>Dictionary Comprehensions<ul>
+<li><code>{&lt;key exp&gt;: &lt;value exp&gt; for &lt;name&gt; in &lt;iter exp&gt;}</code></li>
+<li><code>{&lt;key exp&gt;: &lt;value exp&gt; for &lt;name&gt; in &lt;iter exp&gt; if &lt;filter exp&gt;}</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="13-Data-Abstraction"><a href="#13-Data-Abstraction" class="headerlink" title="13.Data Abstraction"></a>13.Data Abstraction</h2><ul>
+<li>选择函数selectors和构造函数constructors</li>
+<li>Abstraction Barriers</li>
+</ul>
+<blockquote>
+<p>Code that violates abstraction barriers should burn.</p>
+</blockquote>
+<a href="DataAbstraction1.jpg" data-fancybox="gallery" data-caption="DataAbstraction1.jpg">
+  <img src="DataAbstraction1.jpg" width="50%" alt="DataAbstraction1.jpg">
+</a>
+
+<a href="DataAbstraction2.jpg" data-fancybox="gallery" data-caption="DataAbstraction2.jpg">
+  <img src="DataAbstraction2.jpg" width="50%" alt="DataAbstraction2.jpg">
+</a>
+
+<h2 id="14-Trees"><a href="#14-Trees" class="headerlink" title="14.Trees"></a>14.Trees</h2><ul>
+<li>Recursive description<ul>
+<li>Root label</li>
+<li>Branch</li>
+<li>Leaf<ul>
+<li>Branch也是tree，Leaf也是tree</li>
+<li>leaf是没有branch的tree</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Relative description<ul>
+<li>Root node</li>
+<li>Nodes</li>
+<li>Labels</li>
+<li>Parent, Children</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">tree</span>(<span class="params">label, branches=[]</span>):</span><br><span class="line">    <span class="keyword">for</span> branch <span class="keyword">in</span> branches:</span><br><span class="line">        <span class="keyword">assert</span> is_tree(branch)</span><br><span class="line">    <span class="keyword">return</span> [label] + <span class="built_in">list</span>(branches)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">label</span>(<span class="params">tree</span>):</span><br><span class="line">    <span class="keyword">return</span> tree[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">branches</span>(<span class="params">tree</span>):</span><br><span class="line">    <span class="keyword">return</span> tree[<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_tree</span>(<span class="params">tree</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">type</span>(tree) != <span class="built_in">list</span> <span class="keyword">or</span> <span class="built_in">len</span>(tree) &lt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> branch <span class="keyword">in</span> branches(tree):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> is_tree(branch):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_leaf</span>(<span class="params">tree</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">not</span> branches(tree)</span><br></pre></td></tr></table></figure>
+
+<h2 id="15-Mutability"><a href="#15-Mutability" class="headerlink" title="15.Mutability"></a>15.Mutability</h2><h3 id="1）一些概念"><a href="#1）一些概念" class="headerlink" title="1）一些概念"></a>1）一些概念</h3><ul>
+<li>Objects对象</li>
+<li>Classes类</li>
+<li>Attributes属性</li>
+<li>Methods方法</li>
+</ul>
+<h3 id="2）关于可变与不可变"><a href="#2）关于可变与不可变" class="headerlink" title="2）关于可变与不可变"></a>2）关于可变与不可变</h3><ul>
+<li>mutable可变类型的对象<ul>
+<li>lists dictioinaries</li>
+</ul>
+</li>
+<li>immutable不可变<ul>
+<li>tuples numbers strings</li>
+</ul>
+</li>
+<li>对于可变类型的对象，改变了一个引用，另一个引用也会改变</li>
+</ul>
+<h3 id="3）栗子"><a href="#3）栗子" class="headerlink" title="3）栗子"></a>3）栗子</h3><ul>
+<li><code>a = s</code>是让<code>a</code>成为<code>s</code>的另一个引用，而<code>b = s[:]</code>是拷贝了一份</li>
+<li><code>s=[1,2,3]``a = s</code>再<code>s = [3]</code>则<code>a not is s</code>了，因为<code>s=[3]</code>让<code>s</code>指向了一个新的对象</li>
+</ul>
+<h3 id="4）一些方法"><a href="#4）一些方法" class="headerlink" title="4）一些方法"></a>4）一些方法</h3><ul>
+<li><code>append(elem)</code>返回<code>None</code></li>
+<li><code>extend(s)</code>返回<code>None</code></li>
+<li><code>insert(i, elem)</code>返回<code>None</code></li>
+<li><code>remove(elem)</code>返回<code>None</code></li>
+<li><code>pop(i)</code>返回索引<code>i</code>处的元素</li>
+<li><code>pop()</code>返回最后一个元素</li>
+</ul>
+<h3 id="5）Identity-Operators"><a href="#5）Identity-Operators" class="headerlink" title="5）Identity Operators"></a>5）Identity Operators</h3><ul>
+<li><code>is</code><ul>
+<li><code>is</code>为<code>True</code>当且仅当，二者是同一个Object</li>
+<li><code>==</code>为<code>True</code>当且仅当，二者的Value相等</li>
+</ul>
+</li>
+</ul>
+<h3 id="6）危险"><a href="#6）危险" class="headerlink" title="6）危险"></a>6）危险</h3><ul>
+<li>Mutable Default Arguments are Dangerous默认可变参数很危险</li>
+</ul>
+<h3 id="7）mutable-function"><a href="#7）mutable-function" class="headerlink" title="7）mutable function"></a>7）mutable function</h3><ul>
+<li>调用函数会产生一些副作用</li>
+</ul>
+<h3 id="8）一些技巧与思想"><a href="#8）一些技巧与思想" class="headerlink" title="8）一些技巧与思想"></a>8）一些技巧与思想</h3><ul>
+<li>用高阶函数，可以利用函数的调用会创建frame这一点，使得mutable的list之类的数据在每一次调用中发生不同的变化，且不影响全局</li>
+<li>更具体地说，高阶函数内定义一个可变容器（如 list），并返回一个能修改它的内层函数，这样每次调用外层函数，都会创建新的 frame（环境），里面的可变容器随之独立诞生，且不会干扰其他调用。这样就能安全地利用可变状态来实现“累积”效果（如计数器、累加器），同时避免全局变量带来的副作用。</li>
+</ul>
+<h2 id="16-Iterators"><a href="#16-Iterators" class="headerlink" title="16.Iterators"></a>16.Iterators</h2><ul>
+<li>Iterators<ul>
+<li><code>iter``next</code></li>
+</ul>
+</li>
+<li>Iterable</li>
+</ul>
+<br>
+
+<ul>
+<li>iterators都是mutable objects</li>
+<li>用完了会<code>StopIteration</code></li>
+</ul>
+<br>
+
+<ul>
+<li>注意，让一个不是list的iterators<code>==</code>一个list   是<code>False</code>的</li>
+<li>要先对iterators<code>list()</code>，因为list才能<code>==</code>list</li>
+</ul>
+<br>
+<br>
+
+
+<ul>
+<li><code>k = iter(d.keys())</code></li>
+<li><code>v = iter(d.values())</code></li>
+<li><code>i = iter(d.items())</code><ul>
+<li>字典的大小（结构）一旦改变，对它的迭代器就会失效</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<ul>
+<li>Built-in Functions for Iteration</li>
+<li><code>map``filter``zip``reversed</code><ul>
+<li>返回<code>iterators</code></li>
+<li>以惰性方式计算，只有在被请求时才计算结果</li>
+</ul>
+</li>
+<li><code>list``tuple``sorted</code><ul>
+<li>如果想要迭代器的全部内容，可以用这些函数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">palindrome</span>(<span class="params">s</span>):  <span class="comment">#判断s是不是回文的sequence。list string等都可以判断</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">all</span>([a == b <span class="keyword">for</span> a, b <span class="keyword">in</span> <span class="built_in">zip</span>(s, <span class="built_in">reversed</span>(s))])      <span class="comment">#就一行</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="17-Generators"><a href="#17-Generators" class="headerlink" title="17.Generators"></a>17.Generators</h2><ul>
+<li><code>yield</code></li>
+<li><code>yield from</code></li>
+</ul>
+<h2 id="18-Objects"><a href="#18-Objects" class="headerlink" title="18.Objects"></a>18.Objects</h2><h3 id="1）Object-Oriented-Programming"><a href="#1）Object-Oriented-Programming" class="headerlink" title="1）Object Oriented Programming"></a>1）Object Oriented Programming</h3><ul>
+<li>方法methods</li>
+<li>属性attributes</li>
+</ul>
+<h3 id="2）示例"><a href="#2）示例" class="headerlink" title="2）示例"></a>2）示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span>:</span><br><span class="line">    num_wheels = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, color</span>):</span><br><span class="line">        <span class="variable language_">self</span>.wheels = Car.num_wheels</span><br><span class="line">        <span class="variable language_">self</span>.color = color</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">drive</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.wheels &lt;= Car.num_wheels:</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">self</span>.color + <span class="string">&#x27; car cannot drive!&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.color + <span class="string">&#x27; car goes vroom!&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop_tire</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.wheels &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="variable language_">self</span>.wheels -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="19-Attributes"><a href="#19-Attributes" class="headerlink" title="19.Attributes"></a>19.Attributes</h2><ul>
+<li><p>Class attributes</p>
+</li>
+<li><p><code>getattr``hasattr</code></p>
+</li>
+<li><p>定义类<code>Account</code>的方法<code>deposit</code>时用<code>def deposit(self, amount):</code></p>
+</li>
+<li><p>那么对于<code>Account</code>的实例<code>a</code>写<code>f = a.deposit</code>后，<code>f</code>就已经填好了<code>self</code></p>
+</li>
+<li><p><code>Account.deposit</code>是function</p>
+</li>
+<li><p><code>tom_account.deposit</code>是method</p>
+</li>
+<li><p>functioin需要手动传入<code>self</code></p>
+</li>
+<li><p>method会自动传入<code>self</code></p>
+</li>
+</ul>
+<h2 id="20-Inheritance"><a href="#20-Inheritance" class="headerlink" title="20.Inheritance"></a>20.Inheritance</h2><p><code>class &lt;name&gt;(&lt;base class&gt;)</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;suite&gt;</code></p>
+<br>
+
+<p>Guidance</p>
+<ul>
+<li>Don’t copy&#x2F;paste</li>
+</ul>
+<br>
+
+<p><code>&quot;is-a&quot;</code>关系</p>
+<ul>
+<li>用Inheritance</li>
+</ul>
+<p><code>&quot;has-a&quot;</code>关系</p>
+<ul>
+<li>用Composition</li>
+</ul>
+<br>
+
+<ul>
+<li>multiple inheritance</li>
+</ul>
+<br>
+
+<h2 id="21-Representation"><a href="#21-Representation" class="headerlink" title="21.Representation"></a>21.Representation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>half</span><br><span class="line">Fraction(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">repr</span>(half)</span><br><span class="line"><span class="string">&#x27;Fraction(1, 2)&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(half)</span><br><span class="line"><span class="number">1</span>/<span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">str</span>(half)</span><br><span class="line"><span class="string">&#x27;1/2&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>f-strings</li>
+<li>Polymorphic Functions</li>
+<li>特殊方法名</li>
+</ul>
+<br>
+
+<ul>
+<li><code>[:]</code>是复制一份列表</li>
+<li>不能遍历列表同时修改列表。这时就可以先复制一份，再遍历副本</li>
+</ul>
+<h2 id="22-Composition"><a href="#22-Composition" class="headerlink" title="22.Composition"></a>22.Composition</h2><ul>
+<li>linked list链表</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Link</span>:</span><br><span class="line">    empty = ()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, first, rest=empty</span>):</span><br><span class="line">        <span class="keyword">assert</span> rest <span class="keyword">is</span> Link.empty <span class="keyword">or</span> <span class="built_in">isinstance</span>(rest, Link)</span><br><span class="line">        <span class="variable language_">self</span>.first = first</span><br><span class="line">        <span class="variable language_">self</span>.rest = rest</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="23-Efficiency"><a href="#23-Efficiency" class="headerlink" title="23.Efficiency"></a>23.Efficiency</h2><ul>
+<li>Memorization</li>
+</ul>
+<br>
+
+<ul>
+<li>Exponential growth</li>
+<li>Quadratic growth</li>
+<li>Linear growth</li>
+<li>Logarithmic growth</li>
+<li>Constant growth</li>
+</ul>
+<br>
+
+<ul>
+<li>big theta</li>
+<li>big O（上限）</li>
+</ul>
+<br>
+
+<h2 id="24-Decomposition"><a href="#24-Decomposition" class="headerlink" title="24.Decomposition"></a>24.Decomposition</h2><ul>
+<li>Modular Design</li>
+</ul>
+<h2 id="25-Data-Examples"><a href="#25-Data-Examples" class="headerlink" title="25.Data Examples"></a>25.Data Examples</h2><br>
+
+<h2 id="28-Scheme"><a href="#28-Scheme" class="headerlink" title="28.Scheme"></a>28.Scheme</h2><ul>
+<li>procedure</li>
+<li>combination</li>
+</ul>
+<br>
+
+<ul>
+<li>special forms</li>
+<li><code>define</code></li>
+<li><code>cond</code></li>
+<li><code>begin</code></li>
+<li><code>let</code></li>
+</ul>
+<h2 id="29-Scheme-Lists"><a href="#29-Scheme-Lists" class="headerlink" title="29.Scheme Lists"></a>29.Scheme Lists</h2><ul>
+<li>scheme lists是linked lists</li>
+</ul>
+<br>
+
+<ul>
+<li><code>cons</code>构造</li>
+<li><code>car</code>取first</li>
+<li><code>cdr</code>取rest</li>
+<li><code>nil</code>为empty</li>
+</ul>
+<br>
+
+<ul>
+<li><code>list?</code></li>
+<li><code>null?</code></li>
+</ul>
+<br>
+
+<ul>
+<li><code>&#39;</code></li>
+<li><code>quote</code></li>
+</ul>
+<br>
+
+<ul>
+<li><code>append</code></li>
+<li><code>map</code></li>
+<li><code>filter</code></li>
+<li><code>apply</code></li>
+</ul>
+<br>
+
+<h2 id="30-Calculator"><a href="#30-Calculator" class="headerlink" title="30.Calculator"></a>30.Calculator</h2><ul>
+<li><code>TryeError</code></li>
+<li><code>NameError</code></li>
+<li><code>KeyError</code></li>
+<li><code>RecursionError</code></li>
+</ul>
+<br>
+
+<ul>
+<li><code>raise</code></li>
+</ul>
+<br>
+
+<ul>
+<li><code>try</code></li>
+<li><code>except</code></li>
+</ul>
+<br>
+
+<ul>
+<li><code>reduce</code></li>
+</ul>
+<br>
+
+<ul>
+<li>parsing</li>
+<li>read-eval-print loop（REPL）</li>
+</ul>
+<h2 id="31-Interpreters"><a href="#31-Interpreters" class="headerlink" title="31.Interpreters"></a>31.Interpreters</h2><br>
+
+<h2 id="32-Tail-Calls-Optional"><a href="#32-Tail-Calls-Optional" class="headerlink" title="32.Tail Calls(Optional)"></a>32.Tail Calls(Optional)</h2><ul>
+<li>尾递归可以被优化</li>
+<li>尾递归要求，函数的每一个分支最后一个语句是递归，且没有被其他运算包裹</li>
+</ul>
+<h2 id="33-Programs-as-Data"><a href="#33-Programs-as-Data" class="headerlink" title="33.Programs as Data"></a>33.Programs as Data</h2><ul>
+<li>quasi-quote</li>
+<li>unquote</li>
+</ul>
+<br>
+
+<ul>
+<li><code>`</code></li>
+<li><code>,</code></li>
+</ul>
+<h2 id="34-Macros"><a href="#34-Macros" class="headerlink" title="34.Macros"></a>34.Macros</h2><br>
+
+<h2 id="35-SQL"><a href="#35-SQL" class="headerlink" title="35.SQL"></a>35.SQL</h2><ul>
+<li>table</li>
+<li>row有value</li>
+<li>column有name和type</li>
+</ul>
+<br>
+
+<ul>
+<li>the Structured Query Language(SQL)</li>
+</ul>
+<br>
+
+<ul>
+<li><code>select</code></li>
+<li><code>create table</code></li>
+</ul>
+<br>
+
+<ul>
+<li><code>select [expression] as [name], [expression] as [name], ...</code></li>
+<li><code>select [columns] from [table] where [condition] order by [order];</code>（其中columns是上一行那些）</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create table</span> parents <span class="keyword">as</span></span><br><span class="line">  <span class="keyword">select</span> &quot;abraham&quot; <span class="keyword">as</span> parent, &quot;barack&quot; <span class="keyword">as</span> child <span class="keyword">union</span></span><br><span class="line">  <span class="keyword">select</span> &quot;abraham&quot;          , &quot;clinton&quot;         <span class="keyword">union</span></span><br><span class="line">  <span class="keyword">select</span> &quot;delano&quot;           , &quot;herbet&quot;          <span class="keyword">union</span></span><br><span class="line">  <span class="keyword">select</span> &quot;fillmore&quot;         , &quot;abaraham&quot;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="36-Tables"><a href="#36-Tables" class="headerlink" title="36.Tables"></a>36.Tables</h2><ul>
+<li>join</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> parent <span class="keyword">from</span> parents, dogs</span><br><span class="line">        <span class="keyword">where</span> child<span class="operator">=</span>name <span class="keyword">and</span> fur<span class="operator">=</span>&quot;curly&quot;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Aliases and Dot Expressions</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.child <span class="keyword">as</span> <span class="keyword">first</span>, b.child <span class="keyword">as</span> <span class="keyword">second</span></span><br><span class="line">      <span class="keyword">from</span> parents <span class="keyword">as</span> a, parents <span class="keyword">as</span> b</span><br><span class="line">      <span class="keyword">where</span> a.parent <span class="operator">=</span> b.parent <span class="keyword">and</span> a.parent <span class="operator">&lt;</span> b.parent</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Numerical Expressions<ul>
+<li>Combine values: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>and</code> <code>or</code></li>
+<li>Transform valus: <code>abs``round``not</code> <code>-</code></li>
+<li>Compare values: <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>&lt;&gt;</code> <code>!=</code> <code>=</code></li>
+<li>String Expressions</li>
+</ul>
+</li>
+</ul>
+<a href="Table.jpg" data-fancybox="gallery" data-caption="Table.jpg">
+  <img src="Table.jpg" width="50%" alt="Table.jpg">
+</a>
+
+
+<h2 id="37-Aggregation"><a href="#37-Aggregation" class="headerlink" title="37.Aggregation"></a>37.Aggregation</h2><ul>
+<li>Aggregation Functions<ul>
+<li><code>min</code></li>
+<li><code>max</code></li>
+<li><code>avg</code></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><code>group by</code></li>
+<li><code>having</code></li>
+</ul>
+<br>
+
+<ul>
+<li><code>WHERE</code>：在分组之前过滤行，条件中不能使用聚合函数（如 SUM、AVG、MAX 等）。</li>
+<li><code>HAVING</code>：在分组之后过滤组，条件中可以使用聚合函数。</li>
+</ul>
+<br>
+
+<h2 id="38-Databases-Optional"><a href="#38-Databases-Optional" class="headerlink" title="38.Databases(Optional)"></a>38.Databases(Optional)</h2><br>
+
+<h2 id="39-Final-Examples"><a href="#39-Final-Examples" class="headerlink" title="39.Final Examples"></a>39.Final Examples</h2><ul>
+<li>动手写代码之前，一定要多思考思考</li>
+<li>也可以画画图</li>
+</ul>
+<br>
+
+<ul>
+<li>有的时候，可以在函数中先定义一个列表，再定义一个函数，并在这个函数中进行操作。这样的话，内层函数进行递归时，可以直接修改全局的列表。因为列表是可变的</li>
+</ul>
+<h2 id="40-总结"><a href="#40-总结" class="headerlink" title="40.总结"></a>40.总结</h2><p>CS61A真的有很多地方都有股淡淡的幽默</p>
+<p>比如讲到数据抽象时，老师说破坏数据抽象壁垒的代码就应该burn，再配上一个草率的燃烧特效</p>
+<p>比如讲到面向对象编程的继承时，记不清是lab还是discussion有个熊，用了可爱的颜文字?0o0?，而sleeping bear是?-o-?，而winking bear是?-o0?，可爱捏</p>
+<p>再比如第三个Projest也就是游戏Ants，说是灵感来自植物大战僵尸。真的很有意思，CS61A课程组甚至专门找人画了相关的动画，更不用提整个GUI界面了。甚至还有音乐。太神了。</p>
+<br>
+
+<p>此外CS61A的作业设计的真的太强了。Discussion, Homeword, Lab, Project，动辄单文件几百、总共几千行的代码，绝大部分都由课程组完成，教授们真的太伟大了。而具体的问题部分，则紧密联系课上内容。甚至很多时候，我想不出来该怎么做，看一下题目中的提示部分就明白了。这设计真的太巧妙了</p>
+<br>
+
+<p>而且Project也太棒了，从头到尾，有着完整的背景，并且核心逻辑都由自己动手完成。</p>
+<p>似乎这是我第一次不用AI独立完成一个项目。哦不是一个，是四五个。</p>
+<br>
+
+<p>我觉得我真正地意识到”编程动手之前需要动脑思考，动脑思考时最好用草稿纸画一画“这一点时，就是在CS61A的面向对象编程。</p>
+<p>在刚开始看OOP的时候我就意识到了，OOP就是为了符合人类直觉而减少记忆负担。可是直到真的开始动手做OOP的Homework和Discussion时我才意识到，即使用了OOP也还是会有很多记忆负担。这太难了。所以用草稿纸来辅助记忆几乎是必须的。</p>
+<p>但在第三个Project也就是Ants中，我又发现内容实在是太多了，把七百多行代码的内容都写在纸上也不太现实，效率太低。于是在我把类<code>Place</code> <code>Insect</code>的内容写在纸上后，我就放弃了。一抬头，PyCharm这样的IDE又给了我很大的便利：搜索、高亮、提示、继承……</p>
+<p>但有的时候，比如说实例的属性，PyCharm又不能静态识别并显示高亮与提示。所以大概要么写在纸上，要么<code>ctrl f</code>搜一下吧。</p>
+<p>另外这个项目中我也意识到，用合适的英文来命名变量是多么重要，以及OOP真的是多么方便。</p>
+<p>再另外，我发现我很容易犯一些，<code>True</code> <code>False</code>搞反、方法和属性弄错之类的错误，天呐。没有AI的时候，这种错误得找多长时间啊，真就一台电脑一杯茶、一个bug找一天啊？</p>
+<p>以及这个项目中我还发现，真的动手实在是太重要了。整个Project下来，我真的觉得像是参与了真正的工程一样（虽然绝大部分代码都是CS61A教授们写好的</p>
+<p>另外我还把草纸拍下来了。看得出来我真的很喜欢这个Project（</p>
+<p>是植物大战僵尸的经典游戏，而且是之前就听说过的OOP</p>
+<a href="scratch.jpg" data-fancybox="gallery" data-caption="scratch">
+  <img src="scratch.jpg" width="50%" alt="scratch">
+</a>
+
+<br>
+
+<p>这门课的设计也真的是循序渐进。</p>
+<p>比如一开始用数据抽象的方式讲了树，然后讲完OOP之后又用OOP的方式讲了一遍树。一方面是树重要，另一方面是直观感受OOP与其他范式的区别。</p>
+<p>再比如OOP等各个知识的运用，一开始是有提示，再然后是有测试理解的WWPD（What Would Python Display），最后是只给文档。真的很循序渐进，让人欲罢不能啊。</p>
+<br>
+
+<p>动手真的是太多了<br>甚至于做得太多，感觉我都要记住python的树和列表的实现和使用了<br>以及我现在起手就想递归，反而是后知后觉地想到while或for了<br>还记得一开始，老师说递归很难，我做作业也发现确实很难。但老师后一句说，以后我们都会掌握的。果然，我觉得我已经差不多掌握了。</p>
+<br>
+
+<p>CS61A咋这么好，专门写了个服务器小应用来做scheme</p>
+<br>
+
+<p>scheme一开始真的是太难了</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="built_in">define</span></span> (<span class="name">pow</span> base exp) </span><br><span class="line">    (<span class="name"><span class="built_in">cond</span></span> ((<span class="name"><span class="built_in">=</span></span> exp <span class="number">1</span>) base)</span><br><span class="line">            ((<span class="name"><span class="built_in">odd?</span></span> exp)(<span class="name"><span class="built_in">*</span></span> (<span class="name">square</span>(<span class="name">pow</span> base (<span class="name"><span class="built_in">/</span></span> (<span class="name"><span class="built_in">-</span></span> exp <span class="number">1</span>) <span class="number">2</span>))) base))</span><br><span class="line">            ((<span class="name"><span class="built_in">even?</span></span> exp)(<span class="name">square</span> (<span class="name">pow</span> base (<span class="name"><span class="built_in">/</span></span> exp <span class="number">2</span>))))</span><br><span class="line">             ))</span><br></pre></td></tr></table></figure>
+
+<p>就这么个东西，我改了半天<br>语法特别陌生，逻辑一开始还搞错了<br>不过最后过了测试的那一瞬间，真的特别有成就感<br>另外熟悉了一些之后，我觉得scheme语法还挺有意思的</p>
+<br>
+
+<p>不过scheme咋两节课就讲完了<br>结束的好突然啊<br>真是一场酣畅淋漓的“极速入门”又“极速出门”啊</p>
+<br>
+
+<p>哦后边还有不少scheme项目呢</p>
+<br>
+
+<p>动手写代码之前真应该多想想啊，想明白了再动手</p>
+<br>
+
+<p>我看AI提到了、弹幕也说过，这个scheme的项目似乎很有名气啊</p>
+<br>
+
+<p>原来这是CS61A最后一个项目吗</p>
+<br>
+
+<p>我之前就在网上看见，有人说做了scheme项目才知道静态作用域和动态作用域的区别<br>就在刚刚，我有一个地方弄错了，研究了一下发现就是这个问题，我天，有种回旋镖转了一圈打到我自己的感觉。原来我也是做了scheme项目才知道静态作用域和动态作用域的区别</p>
+<p>（我不能过段时间就忘了吧</p>
+<br>
+
+<p>我这都要到最后了，才意识到一开始CS61A讲的那一套Frame的environments是多重要</p>
+<br>
+
+<p>scheme似乎是很有难度的一个项目，但是我几乎一天就做完了。哦也是一整天。只是没有我做之前想象的那么难，毕竟绝大部分教授们都写好了<br>不过还有一个很重要的因素是，我可以用AI来帮助我排查很困难的问题<br>但用AI也会给我带来一种愧疚感，就好像不是我自己做出来的一样<br>所以后期我会有意识地少用AI，多去看测试样例、看相关函数的定义、多读几遍题<br>（不过有的时候AI陷入幻觉了，是真没救啊，骂了也没用，还得是我自己来看）</p>
+<br>
+
+<p>Scheme项目还是很有难度的啊<br>尤其可选问题……<br>有点难飞了</p>
+<br>
+
+<p>已在2026.5.20这天严肃完成CS61A第四个Project<br>o7<br>今天真的很幸运，天时地利人和都占了<br>恰好我想要今天开始做这个Project，而今天只有一节高数课。又恰好高数课讲到新的一章，作业不一会就写完了。所以今天有充足的时间来做这个Project，以至于一天就做完了。今天又是520（</p>
+<a href="over.jpg" data-fancybox="gallery" data-caption="over">
+  <img src="over.jpg" width="50%" alt="over">
+</a>
+
+
+
+
+<p>快要做完的时候，突然感觉，回头一看，似乎学了不少东西。但要说让我从头开始做些什么，不管是Python还是Scheme，似乎又写不出来。大概自学就是这样吧。不知道以后会是什么样子。</p>
+<br>
+
+<p>另外我扫了几眼那些Project没涉及到的文件，像是<code>scheme.py``scheme_builtins.py``scheme_utils.py</code>等等<br>我的天啊，真复杂啊<br>教授们不知道为我们简化了多少东西<br>只给我们留下了十几个问题<br>太强了</p>
+<p><br><br></p>
+<p>我看这SQL也是别有一番风味啊</p>
+<br>
+
+<p>到SQL的时候，就是CS61A的最后一个部分了。感觉做最后一个discussion, lab, homework都带着一股不舍的感觉。<br>但是另一方面，临近尾声，脑子已经静不下来了，想要快点结束。<br>人真是矛盾的啊</p>
+<br>
+
+<p>欸呀我靠我怎么总是忘记SQL的分号</p>
+<br>
+
+<p>我这是……SQL入门了？</p>
+<br>
+
+<p>这是最后一个Discussion的最后一个问题<br>It’s The End<br>What Happens Now<br>You Go Home</p>
+<a href="sql1.jpg" data-fancybox="gallery" data-caption="sql1">
+  <img src="sql1.jpg" width="50%" alt="sql1">
+</a>
+
+<a href="sql2.jpg" data-fancybox="gallery" data-caption="sql2">
+  <img src="sql2.jpg" width="50%" alt="sql2">
+</a>
+
+
+
+
+
+<p><br><br><br></p>
+<p>CS61A看完了？？？</p>
+<br>
+
+<a href="reallyOver.jpg" data-fancybox="gallery" data-caption="reallyOver">
+  <img src="reallyOver.jpg" width="50%" alt="reallyOver">
+</a>
+
+  
+<p>让我想想<br>第一个Project是Hog，是函数式编程<br>第二个Project是Cat，是递归<br>第三个Project是Ants，是面向对象编程<br>第四个Project是Scheme，是解释器</p>
+<br>
+
+<p>第五个Project是Scheme画廊，我没做（</p>
+<br>
+
+<p>以及12个Lab，12个Discussion，11个Homework</p>
+<p><br><br><br></p>
+<p>CS61A神中神，无需多言</p>
+<br>
+
+<p>真的太伟大了</p>
+<p>教授们无私奉献，让全世界的学生都可以看到如此高质量的课程</p>
+<br>
+
+<p>最后的最后，全都看完了、全都做完了</p>
+<p>我脑子里只浮现出了一句话</p>
+<blockquote>
+<p>结束了？</p>
+</blockquote>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/07/10/%E9%80%89%E4%BF%AE%E8%AF%BE%E5%B0%8F%E8%AE%B0/" title="选修课小记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">选修课小记</div></div><div class="info-2"><div class="info-item-1">有关选修课的一些记录与想法</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">影灭</div><div class="author-info-description">去码头整点薯条  :P</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Welcome"><span class="toc-text">1.Welcome</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Functions"><span class="toc-text">2.Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Control"><span class="toc-text">3.Control</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Higher-Order-Functions"><span class="toc-text">4.Higher-Order Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">（1）控制语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89if%E5%AD%98%E5%9C%A8%E4%BA%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E8%80%8C%E4%B8%8D%E4%BB%85%E4%BB%85%E6%98%AF%E5%87%BD%E6%95%B0"><span class="toc-text">（2）if存在于编程语言而不仅仅是函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E7%9F%AD%E8%B7%AF"><span class="toc-text">（3）逻辑运算符的短路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0"><span class="toc-text">（4）高阶函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">（5）函数作为返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Environments"><span class="toc-text">5.Environments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%B5%8C%E5%A5%97%E5%AE%9A%E4%B9%89%E7%9A%84%E7%8E%AF%E5%A2%83"><span class="toc-text">（1）嵌套定义的环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%A6%82%E4%BD%95%E7%BB%98%E5%88%B6%E7%8E%AF%E5%A2%83%E5%9B%BE"><span class="toc-text">（2）如何绘制环境图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E5%87%BD%E6%95%B0%E7%BB%84%E5%90%88"><span class="toc-text">（3）函数组合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%884%EF%BC%89lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">（4）lambda表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E6%9F%AF%E9%87%8C%E5%8C%96currying"><span class="toc-text">（5）柯里化currying</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Sound-Optional"><span class="toc-text">6.Sound(Optional)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Functional-Abstraction"><span class="toc-text">7.Functional Abstraction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Function-Examples"><span class="toc-text">8.Function Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Recursion"><span class="toc-text">9.Recursion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Tree-Recursion"><span class="toc-text">10.Tree Recursion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Sequences"><span class="toc-text">11.Sequences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-Containers"><span class="toc-text">12.Containers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Data-Abstraction"><span class="toc-text">13.Data Abstraction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-Trees"><span class="toc-text">14.Trees</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-Mutability"><span class="toc-text">15.Mutability</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5"><span class="toc-text">1）一些概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E5%85%B3%E4%BA%8E%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98"><span class="toc-text">2）关于可变与不可变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89%E6%A0%97%E5%AD%90"><span class="toc-text">3）栗子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%89%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95"><span class="toc-text">4）一些方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%EF%BC%89Identity-Operators"><span class="toc-text">5）Identity Operators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%EF%BC%89%E5%8D%B1%E9%99%A9"><span class="toc-text">6）危险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%EF%BC%89mutable-function"><span class="toc-text">7）mutable function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%EF%BC%89%E4%B8%80%E4%BA%9B%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%80%9D%E6%83%B3"><span class="toc-text">8）一些技巧与思想</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-Iterators"><span class="toc-text">16.Iterators</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-Generators"><span class="toc-text">17.Generators</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-Objects"><span class="toc-text">18.Objects</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89Object-Oriented-Programming"><span class="toc-text">1）Object Oriented Programming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E7%A4%BA%E4%BE%8B"><span class="toc-text">2）示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-Attributes"><span class="toc-text">19.Attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-Inheritance"><span class="toc-text">20.Inheritance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-Representation"><span class="toc-text">21.Representation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-Composition"><span class="toc-text">22.Composition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-Efficiency"><span class="toc-text">23.Efficiency</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-Decomposition"><span class="toc-text">24.Decomposition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-Data-Examples"><span class="toc-text">25.Data Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-Scheme"><span class="toc-text">28.Scheme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-Scheme-Lists"><span class="toc-text">29.Scheme Lists</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#30-Calculator"><span class="toc-text">30.Calculator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#31-Interpreters"><span class="toc-text">31.Interpreters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-Tail-Calls-Optional"><span class="toc-text">32.Tail Calls(Optional)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-Programs-as-Data"><span class="toc-text">33.Programs as Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#34-Macros"><span class="toc-text">34.Macros</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#35-SQL"><span class="toc-text">35.SQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#36-Tables"><span class="toc-text">36.Tables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#37-Aggregation"><span class="toc-text">37.Aggregation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#38-Databases-Optional"><span class="toc-text">38.Databases(Optional)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39-Final-Examples"><span class="toc-text">39.Final Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#40-%E6%80%BB%E7%BB%93"><span class="toc-text">40.总结</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 影灭</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-ribbon.min.js" size="120" alpha="0.35" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
