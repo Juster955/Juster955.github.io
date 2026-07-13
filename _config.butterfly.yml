@@ -160,3 +160,21 @@ theme_color:
 index_post_content:
   method: 1  # 1: description, 2: both, 3: auto_excerpt (默认)
   length: 500 # 自动摘要截取长度
+
+# 评论系统
+comments:
+  use: giscus
+  text: true
+  lazyload: true
+
+# Giscus 配置
+# https://giscus.app/zh-CN
+giscus:
+  repo: Juster955/Juster955.github.io
+  repo_id: R_kgDOQnjVhQ
+  category: Announcements
+  category_id: DIC_kwDOQnjVhc4DBGWy
+  mapping: title 
+  theme:
+    light: light
+    dark: dark

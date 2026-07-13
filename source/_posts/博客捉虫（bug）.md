@@ -1,7 +1,7 @@
 ---
 title: 博客捉虫（bug）
 date: 2025-12-13 14:53:56
-tags: [技术, Hexo, GitHub-Pages]
+tags: [技术, Hexo, GitHub-Pages, 博客]
 categories: [技术探索]
 description: 一天我心血来潮，想给我博客在github库的页面，加一个README.md
 ---
