@@ -119,7 +119,13 @@ wow，GitHub仓库开启Discussion还会飘彩带啊，可爱捏【图片】
 - 注意到最后有一段自动生成的`<script>`标签，复制下来，一会要用到
 ### 3）博客的配置
 - 打开博客的配置文件（我的是`_config.butterfly.yml`）
-- 进行配置（我的配置内容如下）
+- 修改配置文件
+
+一点问题：
+我发现写好评论之后，在GitHub仓库的Discussions那里显示的还是类似“2026/07/10/%E9%80%89%E4%BF%AE%E8%AF%BE%E5%B0%8F%E8%AE%B0/”之类的URL编码而不是正常的中文
+解决：
+问了一下AI，说用F12开发者工具看看`<script>`，发现里边有一段逻辑不是我想要的效果。AI说这是Butterlfy主题自动生成的，在配置文件的Giscus部分中加一个`option`字段就好了
+我的配置文件评论部分如下
 ```yaml
 # 评论系统
 comments:
@@ -131,12 +137,15 @@ comments:
 # https://giscus.app/zh-CN
 giscus:
   repo: Juster955/Juster955.github.io
-  repo_id: <写你从Giscus官网复制过来的id> 
+  repo_id: R_kgDOQnjVhQ
   category: Announcements
-  category_id: <写你从Giscus官网复制过来的id>
-  mapping: title 
+  category_id: DIC_kwDOQnjVhc4DBGWy
+  mapping: title  
   theme:
     light: light
     dark: dark
+  option:
+    data-mapping: title
+
 
 ```

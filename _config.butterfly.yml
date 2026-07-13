@@ -174,7 +174,9 @@ giscus:
   repo_id: R_kgDOQnjVhQ
   category: Announcements
   category_id: DIC_kwDOQnjVhc4DBGWy
-  mapping: title 
+  mapping: title  
   theme:
     light: light
     dark: dark
+  option:
+    data-mapping: title
