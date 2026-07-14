@@ -174,53 +174,24 @@ inject:
 </a>
 ```
 
-<br>
+不过这样的话，就会有点问题
+- 想要看见图片需要把图片推送到jsDelivr用的仓库，在这里就是我博客的仓库
+- 推送会自动触发GitHub Actions进行部署`hexo d`
+- 我希望本地预览`hexo s`在部署`hexo d`之前
 
-但这样的话我又发现一个问题
-- 我希望发布之前可以先本地预览`hexo s`一下文章，包括图片
-- 因为我用的CDN jsDelivr仓库就是这个博客仓库，所以要先推送`push`才能看见图片
-- 我设置了GitHub Actions，`git push origin main`就会部署`hexo d`
-- 我又希望部署`hexo d`在预览`hexo s`之后
+所以本地预览的时候我是看不见图片的
+也还行吧，这个问题勉强也能接受
+就先这样吧
 
-AI说可以写一个脚本解决这个问题
-`scripts/cdn_rewrite.js`
-```javascript
-const path = require('path');
-
-hexo.extend.filter.register('after_render:markdown', function(str, data) {
-  // 本地预览模式不替换，保留相对路径
-  if (hexo.env.cmd === 'server') return str;
-
-  // 只处理 _posts 目录下的文章
-  if (!data || !data.path) return str;
-  if (!data.path.startsWith('_posts/')) return str;
-
-  // 获取文章所在的文件夹名
-  const dirName = path.dirname(data.path).replace('_posts/', '');
-  if (!dirName || dirName === '.') return str;
-
-  const cdnBase = `https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/${dirName}/`;
-
-  // 替换 src="图片名.jpg" 或 href="图片名.jpg" 为 CDN 链接
-  return str.replace(
-    /(src|href)="([^"\/]+\.(jpg|jpeg|png|gif|webp|svg|bmp))"/gi,
-    (match, attr, filename) => {
-      return `${attr}="${cdnBase}${filename}"`;
-    }
-  );
-});
-```
-
-而之前设置了GitHub Actions说`git push origin main`就可以自动部署
-所以现在来说
-- 本地使用相对路径查看图片即可
+还有个问题是jsDelivr访问有点问题
+我换成镜像站`gcore.jsdelivr.net`就好了
+一方面是正文插图用的那个，换成下边那个markdown代码块的写法就好了
+一方面是Hexo主题`Butterfly`的首页图和顶部图，都要在配置文件里也换一下
 ```markdown
-<a href="图片名.jpg" data-fancybox="gallery" data-caption="图片描述">
-  <img src="图片名.jpg" width="50%" alt="图片描述">
+<a href="https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/新文章文件夹名/图片名.jpg" data-fancybox="gallery" data-caption="图片描述">
+  <img src="https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/新文章文件夹名/图片名.jpg" width="50%" alt="图片描述">
 </a>
 ```
-- 推送后会自动替换成需要的CDN jsDelivr的语法
-
 
 ## 3.评论系统
 没啥原因，就是觉得有了评论会好玩一些哈哈

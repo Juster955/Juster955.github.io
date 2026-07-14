@@ -43,3 +43,6 @@ More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 
 P.S.为啥这个东西会在这里呢？
 因为有一天，我发现博客出了点bug，于是就把所有的东西推倒重来了一次。便有了这个夹在中间的Hello World
+
+P.P.S.
+后来有一天我又捣鼓博客的CI/CI+图片加载+评论系统，于是这个东西又上来了
