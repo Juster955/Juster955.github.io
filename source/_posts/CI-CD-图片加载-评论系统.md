@@ -11,6 +11,7 @@ description: 对这个博客站点的一点更新迭代
 ## 1.CI/CD
 之前[看了The Missing Semester](https://juster955.github.io/2026/07/12/The-Missing-Semester/)，突然想要动手试试CI/CD，但是又没有值得捣鼓的项目啊
 哦，我有一个博客啊。那为什么不试试呢
+要不把手动的`hexo d`部署相关流程放进`GitHub Actions`吧
 
 一开始我问了一下AI，AI给出了回答
 我突然想到，要不我也试试不用AI，只看看官方文档
@@ -34,16 +35,15 @@ description: 对这个博客站点的一点更新迭代
 - 每次本地main推送到远程main后，触发GitHub Actions自动将静态文件推送到远程的gh-pages
 
 > P.S.
-> 另外我有一个Dependabot机器人负责检查并自动合并安全性更新，这个与本次CI/CD相关博客更新迭代无关
-
-> P.P.S.
 > 我这个方案是改动最小的方案，即GitHub Actions只负责生成静态文件并推送到gh-pages分支
 > 而GitHub官方更推荐一些的方案是：`GitHub Pages`部署的源`source`选择`GitHub Actions`，然后由GitHub Actions直接部署，不经过分支
 
-如果`我说明白了 && 你听明白了`
-那么接下来似乎就该是我展示我的做法的环节了
+> P.P.S.
+> 另外我有一个Dependabot机器人负责检查并自动合并安全性更新，这个与本次CI/CD相关更新迭代无关
 
-创建`.github/workflows/deploy.yml`
+那我做了什么呢
+
+- 创建`.github/workflows/deploy.yml`
 ```yaml
 name: Deploy Hexo Blog
 
@@ -90,11 +90,99 @@ jobs:
 
 ## 2.图片加载
 
-问题：我发现图片加载真的很慢。一方面是文章里的插图，一方面是Hexo主题`Butterfly`的首页图和顶部图。之前我都是把图片先在线上网站压缩到100KB左右，确实好一些了。但其实效果不是很理想。所以想要再优化一下，让图片加载不要那么慢。
+问题：我发现图片加载真的很慢。一方面是文章里的插图，一方面是Hexo主题`Butterfly`的首页图和顶部图。之前我都是把图片先在线上网站压缩到100KB左右，确实会好一些，但其实效果不是很理想。所以我想要再优化一下，让图片加载不要那么慢。
 
 解决：
 - 简单上网搜了一圈，发现最常见的解决方法是CDN，使用JsDelivr
-- 问AI，
+- 问AI，一通询问后我决定手动改
+
+做法：
+- 把图片链接换成jsDelivr的就可以了
+（这是因为我之前都是会把图片文件推送到GitHub博客仓库的main分支）
+（这里的流程是，把图片上传至仓库，再把图片链接换成`https://cdn.jsdelivr.net/gh/用户名/仓库名@分支名/文件路径`）
+
+- 我的Hexo主题`Butterfly`的首页图和顶部图：
+```yaml
+# 首页顶部大图
+# 使用CDN jsDelivr
+index_img: https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_bg.jpg
+
+# 所有文章页的默认顶部大图
+# 使用CDN jsDelivr
+default_top_img: https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/default_post_img.jpg
+
+
+inject:
+  head:
+    - '<style>#sidebar .avatar-img,.card-info .avatar-img{display:none!important;}</style>'
+    - '<style>
+      /*对于电脑端和手机端，设置一下不同的index_img*/
+        /* 电脑端用 index_bg.jpg（默认） */
+        /* 手机端覆盖为 index_mobile_bg.jpg */
+
+        /* 另外这里也用CDN jsDelivr */
+        @media screen and (max-width: 768px) {
+          .page:not(.post) #page-header {             /* 这里的 not(.post) 是为了排除文章页，让文章页的顶部大图不受影响 */
+            background-image: url(https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_mobile_bg.jpg) !important;
+          }
+        }
+      </style>'
+```
+- 我的文章正文插图
+- （不知怎么我的博客用图片Markdown语法有点问题，就一直用HTML语法了）
+```markdown
+<a href="https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/新文章文件夹名/图片名.jpg" data-fancybox="gallery" data-caption="图片描述">
+  <img src="https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/新文章文件夹名/图片名.jpg" width="50%" alt="图片描述">
+</a>
+```
+
+<br>
+
+但这样的话我又发现一个问题
+- 我希望发布之前可以先本地预览`hexo s`一下文章，包括图片
+- 因为我用的CDN jsDelivr仓库就是这个博客仓库，所以要先推送`push`才能看见图片
+- 我设置了GitHub Actions，`git push origin main`就会部署`hexo d`
+- 我又希望部署`hexo d`在预览`hexo s`之后
+
+AI说可以写一个脚本解决这个问题
+`scripts/cdn_rewrite.js`
+```javascript
+const path = require('path');
+
+hexo.extend.filter.register('after_render:markdown', function(str, data) {
+  // 本地预览模式不替换，保留相对路径
+  if (hexo.env.cmd === 'server') return str;
+
+  // 只处理 _posts 目录下的文章
+  if (!data || !data.path) return str;
+  if (!data.path.startsWith('_posts/')) return str;
+
+  // 获取文章所在的文件夹名
+  const dirName = path.dirname(data.path).replace('_posts/', '');
+  if (!dirName || dirName === '.') return str;
+
+  const cdnBase = `https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/${dirName}/`;
+
+  // 替换 src="图片名.jpg" 或 href="图片名.jpg" 为 CDN 链接
+  return str.replace(
+    /(src|href)="([^"\/]+\.(jpg|jpeg|png|gif|webp|svg|bmp))"/gi,
+    (match, attr, filename) => {
+      return `${attr}="${cdnBase}${filename}"`;
+    }
+  );
+});
+```
+
+而之前设置了GitHub Actions说`git push origin main`就可以自动部署
+所以现在来说
+- 本地使用相对路径查看图片即可
+```markdown
+<a href="图片名.jpg" data-fancybox="gallery" data-caption="图片描述">
+  <img src="图片名.jpg" width="50%" alt="图片描述">
+</a>
+```
+- 推送后会自动替换成需要的CDN jsDelivr的语法
+
 
 ## 3.评论系统
 没啥原因，就是觉得有了评论会好玩一些哈哈
@@ -106,26 +194,38 @@ jobs:
 我还找到了[一篇参考教程](https://jachinzhang1.github.io/2025/02/04/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/)
 以及AI还查到了[这个](https://blog.csdn.net/m0_74795952/article/details/146429135)和[这个](https://aylmer-wang.github.io/2025/04/16/add-comment/)
 
-wow，GitHub仓库开启Discussion还会飘彩带啊，可爱捏【图片】
+（wow，GitHub仓库开启Discussion还会飘彩带啊，可爱捏
+
+<a href="discussions.png" data-fancybox="gallery" data-caption="wow">
+  <img src="discussions.png" width="50%" alt="wow">
+</a>
 
 具体做法：
+
 ### 1）准备工作
 - 选择一个放GitHub Discussions的仓库，可以是博客所在仓库，也可以是单开一个仓库。要求公开且打开了Discussions功能
 - 那如何打开该仓库的Discussions功能呢：进入该仓库`Settings`，在`General`的`Features`区域勾选`Discussions`并点击`Set up discussions`发布第一篇Discussion，内容无所谓，有就行。
 - 安装Giscus App：访问[https://github.com/apps/giscus](https://github.com/apps/giscus)点击`Install`，选择`Only select repositories`，选择刚刚作为放GitHub Discussions的仓库
+
 ### 2）生成配置代码
 - 进入[Giscus官网](https://giscus.app/zh-CN)，填入刚刚用来放GitHub Discussinos的仓库
-- 进行个性化设置，比如“页面-discussion映射关系”（我选择的是`title`），“Discussion分类”(我选择的是`Announcements`)，“特性”（我选了“启用主帖子上的反应”、“将评论框放在评论上方”和“懒加载评论”）
-- 注意到最后有一段自动生成的`<script>`标签，复制下来，一会要用到
+- 进行个性化设置，比如“页面-discussion映射关系”（我选择的是`title`），“Discussion分类”(我选择的是`Announcements`)，“特性”（我选了“启用主帖子上的反应”、“将评论框放在评论上方”、“懒加载评论”）
+- 注意到最后有一段自动生成的`script`标签，复制下来，一会要用到
+  
 ### 3）博客的配置
 - 打开博客的配置文件（我的是`_config.butterfly.yml`）
 - 修改配置文件
 
-一点问题：
-我发现写好评论之后，在GitHub仓库的Discussions那里显示的还是类似“2026/07/10/%E9%80%89%E4%BF%AE%E8%AF%BE%E5%B0%8F%E8%AE%B0/”之类的URL编码而不是正常的中文
-解决：
-问了一下AI，说用F12开发者工具看看`<script>`，发现里边有一段逻辑不是我想要的效果。AI说这是Butterlfy主题自动生成的，在配置文件的Giscus部分中加一个`option`字段就好了
-我的配置文件评论部分如下
+（另外还有一个令人哭笑不得的事情
+前边“`- 注意到最后有一段自动生成的script标签，复制下来，一会要用到`”这一行，一开始我写的`script`带了`<`和`>`，结果被解析了，出了问题，现象就是当前这个页面的侧边栏和下边的评论与上下篇都没了。去掉`<`和`>`就好了哈哈
+
+
+### 4）一点问题
+我发现写好评论之后，在GitHub仓库的Discussions那里显示的还是类似`2026/07/10/%E9%80%89%E4%BF%AE%E8%AF%BE%E5%B0%8F%E8%AE%B0/`之类的URL编码而不是正常的中文
+
+问了一下AI，说用F12开发者工具看看`<script>`。于是发现里边有一段逻辑不是我想要的效果。AI说这是Butterlfy主题自动生成的，在配置文件的Giscus部分中加一个`option`字段就好了
+
+总之我的配置文件评论部分如下
 ```yaml
 # 评论系统
 comments:
@@ -146,6 +246,4 @@ giscus:
     dark: dark
   option:
     data-mapping: title
-
-
 ```

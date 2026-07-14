@@ -20,10 +20,12 @@ subtitle:
   sub: 欢迎光临我的小站
 
 # 首页顶部大图
-index_img: /images/index_bg.jpg
+# 使用CDN jsDelivr
+index_img: https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_bg.jpg
 
 # 所有文章页的默认顶部大图
-default_top_img: /images/default_post_img.jpg
+# 使用CDN jsDelivr
+default_top_img: https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/default_post_img.jpg
 
 # 整个站点的背景颜色
 background: "#1a274a"
@@ -125,9 +127,11 @@ inject:
       /*对于电脑端和手机端，设置一下不同的index_img*/
         /* 电脑端用 index_bg.jpg（默认） */
         /* 手机端覆盖为 index_mobile_bg.jpg */
+
+        /* 另外这里也用CDN jsDelivr */
         @media screen and (max-width: 768px) {
           .page:not(.post) #page-header {             /* 这里的 not(.post) 是为了排除文章页，让文章页的顶部大图不受影响 */
-            background-image: url(/images/index_mobile_bg.jpg) !important;
+            background-image: url(https://cdn.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_mobile_bg.jpg) !important;
           }
         }
       </style>'
