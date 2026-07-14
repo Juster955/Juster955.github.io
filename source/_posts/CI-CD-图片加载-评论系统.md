@@ -205,9 +205,10 @@ inject:
 
 （wow，GitHub仓库开启Discussion还会飘彩带啊，可爱捏
 
-<a href="discussions.png" data-fancybox="gallery" data-caption="wow">
-  <img src="discussions.png" width="50%" alt="wow">
+<a href="https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/CI-CD-图片加载-评论系统/discussions.png" data-fancybox="gallery" data-caption="wow">
+  <img src="https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/CI-CD-图片加载-评论系统/discussions.png" width="50%" alt="wow">
 </a>
+
 
 具体做法：
 
