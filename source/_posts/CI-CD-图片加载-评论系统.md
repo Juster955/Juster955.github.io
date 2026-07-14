@@ -8,6 +8,8 @@ description: 对这个博客站点的一点更新迭代
 **时间经过**：2026.07.13-2026.07.14
 ***
 
+> 前排提醒：这篇文章不是教程向，而是个人记录的性质更多一些。虽然也能看作是一些教程上的说明，但也许需要读者自行上网搜索一些东西，并且读起来也比较啰嗦
+
 ## 1.CI/CD
 之前[看了The Missing Semester](https://juster955.github.io/2026/07/12/The-Missing-Semester/)，突然想要动手试试CI/CD，但是又没有值得捣鼓的项目啊
 哦，我有一个博客啊。那为什么不试试呢
@@ -83,41 +85,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: gh-pagesname: Deploy Hexo Blog
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Generate static files
-        run: |
-          npx hexo clean
-          npx hexo generate
-
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
           publish_branch: gh-pages
 ```
 
@@ -138,6 +105,8 @@ jobs:
 - 把图片链接换成jsDelivr的就可以了
 （这是因为我之前都是会把图片文件推送到GitHub博客仓库的main分支）
 （这里的流程是，把图片上传至仓库，再把图片链接换成`https://cdn.jsdelivr.net/gh/用户名/仓库名@分支名/文件路径`）
+
+于是
 
 - 我的Hexo主题`Butterfly`的首页图和顶部图：
 ```yaml
@@ -174,19 +143,20 @@ inject:
 </a>
 ```
 
-不过这样的话，就会有点问题
+***
+不过只是这样的话，就会有点问题
 - 想要看见图片需要把图片推送到jsDelivr用的仓库，在这里就是我博客的仓库
 - 推送会自动触发GitHub Actions进行部署`hexo d`
-- 我希望本地预览`hexo s`在部署`hexo d`之前
+- 我又不会在本地预览`hexo s`时就进行部署`hexo d`
 
-所以本地预览的时候我是看不见图片的
+所以本地预览`hexo s`的时候我是看不见图片的
 也还行吧，这个问题勉强也能接受
 就先这样吧
 
 还有个问题是jsDelivr访问有点问题
 我换成镜像站`gcore.jsdelivr.net`就好了
 一方面是正文插图用的那个，换成下边那个markdown代码块的写法就好了
-一方面是Hexo主题`Butterfly`的首页图和顶部图，都要在配置文件里也换一下
+另一方面是Hexo主题`Butterfly`的首页图和顶部图，都要在配置文件里也换一下
 ```markdown
 <a href="https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/新文章文件夹名/图片名.jpg" data-fancybox="gallery" data-caption="图片描述">
   <img src="https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/_posts/新文章文件夹名/图片名.jpg" width="50%" alt="图片描述">
@@ -257,3 +227,6 @@ giscus:
   option:
     data-mapping: title
 ```
+
+至此就把CI/CD+图片加载+评论系统弄完了
+真好
