@@ -53,7 +53,12 @@ toc: false
 - [Github教程](https://gitcn.org/getting-started)
 - [learn git branching](https://learngitbranching.js.org/?locale=zh_CN)
 - [一个AI通识课](https://aipath.buynao.com/)
-- [计算机教育中缺失的一课 中文版](https://missing-semester-cn.github.io/)
+- [The Missing Semester 中文版](https://missing-semester-cn.github.io/)
+- [The Missing Semester 课程官网](https://missing.csail.mit.edu/)
+- [The Missing Semester 课程视频翻译](https://www.bilibili.com/video/BV1CkArz1E4o/)
+- [CSAPP 课程官网](https://csapp.cs.cmu.edu/)
+- [CSAPP 教材中文版](https://zhuanlan.zhihu.com/p/357200951)
+- [CSAPP 课程视频翻译](https://www.bilibili.com/video/BV1iW411d7hd/)
 
 <br><br>
 
