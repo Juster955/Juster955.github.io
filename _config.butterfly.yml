@@ -21,11 +21,11 @@ subtitle:
 
 # 首页顶部大图
 # 使用CDN jsDelivr （的镜像gcore.jsdelivr.net
-index_img: https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_bg.jpg
+index_img: https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_bg_v2.jpg
 
 # 所有文章页的默认顶部大图
 # 使用CDN jsDelivr （的镜像gcore.jsdelivr.net
-default_top_img: https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/default_post_img.jpg
+default_top_img: https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/default_post_img_v2.jpg
 
 
 # 整个站点的背景颜色
