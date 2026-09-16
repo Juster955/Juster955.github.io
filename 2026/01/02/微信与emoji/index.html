@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>微信与emoji | 影灭的博客</title><meta name="author" content="影灭"><meta name="copyright" content="影灭"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="震惊！计算机类大一学生发现国民级软件的bug！这个软件你一定也用过！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信与emoji">
+<meta property="og:url" content="https://juster955.github.io/2026/01/02/%E5%BE%AE%E4%BF%A1%E4%B8%8Eemoji/index.html">
+<meta property="og:site_name" content="影灭的博客">
+<meta property="og:description" content="震惊！计算机类大一学生发现国民级软件的bug！这个软件你一定也用过！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://juster955.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-01-02T15:21:21.000Z">
+<meta property="article:modified_time" content="2026-09-16T15:34:37.897Z">
+<meta property="article:author" content="影灭">
+<meta property="article:tag" content="好玩">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://juster955.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "微信与emoji",
+  "url": "https://juster955.github.io/2026/01/02/%E5%BE%AE%E4%BF%A1%E4%B8%8Eemoji/",
+  "image": "https://juster955.github.io/img/butterfly-icon.png",
+  "datePublished": "2026-01-02T15:21:21.000Z",
+  "dateModified": "2026-09-16T15:34:37.897Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "影灭",
+      "url": "https://juster955.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://juster955.github.io/2026/01/02/%E5%BE%AE%E4%BF%A1%E4%B8%8Eemoji/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微信与emoji',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style>#sidebar .avatar-img,.card-info .avatar-img{display:none!important;}</style><style> /*对于电脑端和手机端，设置一下不同的index_img*/ /* 电脑端用 index_bg.jpg（默认） */ /* 手机端覆盖为 index_mobile_bg.jpg */
+/* 另外这里也用CDN jsDelivr 的镜像gcore.jsdelivr.net*/ @media screen and (max-width: 768px) { .page:not(.post) #page-header {             /* 这里的 not(.post) 是为了排除文章页，让文章页的顶部大图不受影响 */ background-image: url(https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_mobile_bg.jpg) !important; } } </style><meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-color: #a6e4ff;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/default_post_img_v2.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">影灭的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">微信与emoji</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">微信与emoji</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-02T15:21:21.000Z" title="发表于 2026-01-02 15:21:21">2026-01-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-16T15:34:37.897Z" title="更新于 2026-09-16 15:34:37">2026-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%8E%A2%E7%B4%A2/">技术探索</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><strong>时间经过</strong>:2026.01.02</p>
+<hr>
+<p>震惊！计算机类大一学生发现国民级软件的bug！这个软件你一定也用过！</p>
+<p>引言：😅🎂</p>
+<hr>
+<p>一天，我弟弟给我发微信玩。它发了一堆emoji表情“😅”<br><a href="安卓_流汗黄豆.jpg" data-fancybox="gallery" data-caption="安卓_流汗黄豆"><br>  <img src="安卓_流汗黄豆.jpg" width="50%" alt="安卓_流汗黄豆"><br></a><br>我突然发现，在这一堆emoji表情中，前一部分是一个样式，后一部分是另一个样式。长的不一样<br>这让我想起，很久以前，我给别人发一堆emoji表情“🎂”，也有类似的现象<br><a href="安卓_蛋糕.jpg" data-fancybox="gallery" data-caption="安卓_蛋糕"><br>  <img src="安卓_蛋糕.jpg" width="50%" alt="安卓_蛋糕"><br></a><br>这勾起了我的好奇心（也勾走了我接下来的一个小时</p>
+<p>我开始用手机在一次消息气泡中，调整数量，寻找边界<br>果不其然，我发现，存在着这样一个边界：在它之前是一个样式，在它之后是另一个样式<br>这个边界就是12*25 &#x3D; 300<br><a href="找到分界线.jpg" data-fancybox="gallery" data-caption="找到分界线"><br>  <img src="找到分界线.jpg" width="50%" alt="找到分界线"><br></a></p>
+<p>我问deepseek这是为什么<br>经过漫长的叽里咕噜，deepseek说这可能是微信团队对于性能的平衡</p>
+<p>我很高兴，开始把这个成果分享给别人，并问对方是否也能看到这个现象<br>我的高中同学说，能。<br>好啊！有力的验证！<br>我的舍友说，都一样啊。<br>好啊！不对，啥？都一样吗？<br><a href="苹果_蛋糕.jpg" data-fancybox="gallery" data-caption="苹果_蛋糕"><br>  <img src="苹果_蛋糕.jpg" width="50%" alt="苹果_蛋糕"><br></a></p>
+<p>我开始思考。是因为他用的是电脑而不是手机吗？<br>我问，用手机试试呢？<br>他却说：就是手机啊。<br>啊，我猛然反应过来，他用的是苹果手机<br>难道不是微信的问题？是操作系统的问题？</p>
+<p>我的高中同学说，“再多发点”<br>我去，好主意</p>
+<p>这时候，本来打算睡午觉的我，一下子就精神了，爬下床打开了电脑（<br>我开始尝试复制粘贴很多很多的emoji<br>哎呀，微信卡死了……好像有点太多了<br>我又粘贴的慢了一些<br>我发现，电脑并没有这个bug。直到显示“你输入的文字过长，无法发送”，那些🎂还都是相同的样式<br><a href="windows_微信单次输入上限.jpg" data-fancybox="gallery" data-caption="windows_微信单次输入上限"><br>  <img src="windows_微信单次输入上限.jpg" width="50%" alt="windows_微信单次输入上限"><br></a><br><a href="windows_蛋糕.jpg" data-fancybox="gallery" data-caption="windows_蛋糕"><br>  <img src="windows_蛋糕.jpg" width="50%" alt="windows_蛋糕"><br></a></p>
+<p><small><i>（另外我还有个意外发现。电脑微信单次最多输入4096个“蛋糕emoji🎂”。这数字乍一看咋有零有整的？哦，原来是2的12次幂啊。哈哈</i></small></p>
+<p>我用的是安卓手机和windows电脑，所以实验到此就告一段落了。<br>该开始总结了<br>于是我又开始和deepseek进行交流</p>
+<p>我想，大概是这样的：</p>
+<p>微信的emoji用的是iOS的样式<br>或者说微信为了统一，事先在安装包中加了一段自己做的、iOS风格的emoji（deepseek的猜想）<br>而安卓手机上的微信，一出现emoji，就会渲染成这个iOS风格的emoji<br>又出于性能的考虑，安卓手机连续出现300个以上的emoji，就不再渲染，或者是渲染出错，总之是显示安卓本身的emoji样式<br>windows上则一律显示windows的样式</p>
+<p>另外我还在之前收藏过的神秘小网站 <a target="_blank" rel="noopener" href="https://emoji.saruwakakun.com/zh/">Emoji List</a> 找到了佐证<br>（这小网站谁研究的呢，真厉害<br><a href="流汗黄豆.jpg" data-fancybox="gallery" data-caption="流汗黄豆"><br>  <img src="流汗黄豆.jpg" width="50%" alt="流汗黄豆"><br></a><br><a href="蛋糕.jpg" data-fancybox="gallery" data-caption="蛋糕"><br>  <img src="蛋糕.jpg" width="50%" alt="蛋糕"><br></a></p>
+<p>另外的另外，我另一个高中同学问我，鸿蒙呢？<br>他不是纯血鸿蒙，看到的现象和我是一样的。我打趣他说，你算安卓（<br>至于纯血鸿蒙，和macOS一样，缺少实验数据，按下不表（</p>
+<p>就这样</p>
+<hr>
+<p>致谢：高中同学、舍友、deepseek、我自己</p>
+<p>参考文献：我自己用微信的经验与记忆<br><br><br><br><br><br></p>
+<h2 id="一些更新"><a href="#一些更新" class="headerlink" title="一些更新"></a>一些更新</h2><p>其实这个也说不上是bug<br>当时我问了deepseek，说这有可能是腾讯在性能和效果之间的权衡<br>（我读了<a target="_blank" rel="noopener" href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">《提问的智慧》</a>，突然觉得我当时就这么声称找到bug有点草率、有点愧疚，所以才来更新这么几句</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a><a class="post-meta__tags" href="/tags/%E5%A5%BD%E7%8E%A9/">好玩</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/01/23/%E5%88%9D%E8%AF%95%E5%A4%A7%E5%88%9B/" title="初试大创"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">初试大创</div></div><div class="info-2"><div class="info-item-1">这里记录了我首次参与大创项目的相关经历与心路历程</div></div></div></a><a class="pagination-related" href="/2025/12/17/%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/" title="一些小东西"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">一些小东西</div></div><div class="info-2"><div class="info-item-1">这里记录了我做过的一些小东西。还蛮有意思的</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">影灭</div><div class="author-info-description">去码头整点薯条  :P</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%9B%B4%E6%96%B0"><span class="toc-text">一些更新</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 影灭</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"data-mapping":"title"}
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'Juster955/Juster955.github.io',
+      'data-repo-id': 'R_kgDOQnjVhQ',
+      'data-category-id': 'DIC_kwDOQnjVhc4DBGWy',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-ribbon.min.js" size="120" alpha="0.35" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

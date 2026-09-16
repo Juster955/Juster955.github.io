@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>初试大创 | 影灭的博客</title><meta name="author" content="影灭"><meta name="copyright" content="影灭"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这里记录了我首次参与大创项目的相关经历与心路历程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初试大创">
+<meta property="og:url" content="https://juster955.github.io/2026/01/23/%E5%88%9D%E8%AF%95%E5%A4%A7%E5%88%9B/index.html">
+<meta property="og:site_name" content="影灭的博客">
+<meta property="og:description" content="这里记录了我首次参与大创项目的相关经历与心路历程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://juster955.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-01-23T22:14:51.000Z">
+<meta property="article:modified_time" content="2026-09-16T15:34:37.896Z">
+<meta property="article:author" content="影灭">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://juster955.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "初试大创",
+  "url": "https://juster955.github.io/2026/01/23/%E5%88%9D%E8%AF%95%E5%A4%A7%E5%88%9B/",
+  "image": "https://juster955.github.io/img/butterfly-icon.png",
+  "datePublished": "2026-01-23T22:14:51.000Z",
+  "dateModified": "2026-09-16T15:34:37.896Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "影灭",
+      "url": "https://juster955.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://juster955.github.io/2026/01/23/%E5%88%9D%E8%AF%95%E5%A4%A7%E5%88%9B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '初试大创',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style>#sidebar .avatar-img,.card-info .avatar-img{display:none!important;}</style><style> /*对于电脑端和手机端，设置一下不同的index_img*/ /* 电脑端用 index_bg.jpg（默认） */ /* 手机端覆盖为 index_mobile_bg.jpg */
+/* 另外这里也用CDN jsDelivr 的镜像gcore.jsdelivr.net*/ @media screen and (max-width: 768px) { .page:not(.post) #page-header {             /* 这里的 not(.post) 是为了排除文章页，让文章页的顶部大图不受影响 */ background-image: url(https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_mobile_bg.jpg) !important; } } </style><meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-color: #a6e4ff;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/default_post_img_v2.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">影灭的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">初试大创</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">初试大创</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-23T22:14:51.000Z" title="发表于 2026-01-23 22:14:51">2026-01-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-16T15:34:37.896Z" title="更新于 2026-09-16 15:34:37">2026-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AB%9E%E8%B5%9B%E4%B8%8E%E6%B4%BB%E5%8A%A8/">竞赛与活动</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><strong>时间经过</strong>：2025.10-2026.1</p>
+<hr>
+<p>这里记录了我首次参与大创项目的相关经历与心路历程</p>
+<h2 id="一、打开新的大门"><a href="#一、打开新的大门" class="headerlink" title="一、打开新的大门"></a>一、打开新的大门</h2><p>那是2025年的10月，西安很冷。</p>
+<p>学长说那是不同寻常的一年。因为往年的这个时候，才正该秋高气爽。<br><br><br>偶然性的一天，我灵光一闪，打开了学校的官网，并发现了一篇文章。那是一篇关于征集创新训练计划命题的通知，并附带了一个在线文档，学生和老师可以在文档里双向选择。我反手就把这个发给了舍友。</p>
+<p>就这样，在我的提醒下，我们宿舍四个人都研究起了这个叫做什么创新的东西。</p>
+<p>接下来的每一天，我们都会兴高采烈地看看在线文档，翻一翻有没有我们感兴趣的命题。同时，我们逐渐意识到了自己的兴趣所在，也发现了彼此之间兴趣的迥异。我们也慢慢地知道了“大创”是个什么东西。<br><br><br>到了十一月初，我给一位老师发了电子邮件，并借助AI和网络的学习资源，完成了类似于初筛的任务。再后来我收到了老师的邮件，并得知自己已被入选。</p>
+<p>刚收到消息、还未打开邮件时，我是那么的紧张。直到得知了自己被入选，紧张的余悸还未散去，而一股激动与焦虑却又已经随之而来。我激动于自己被入选的有幸，却也焦虑于自己缺少真才实干的不自信。我能做什么？我能做好吗？我不知道。直到我又想起了那句偶然在网上看见的话：“不要为还没发生的事情担心”。我的心这才恢复了些许理智，并悄悄许下不断学习、不断进步的承诺。<br><br><br></p>
+<h2 id="二、鱼和熊掌"><a href="#二、鱼和熊掌" class="headerlink" title="二、鱼和熊掌"></a>二、鱼和熊掌</h2><blockquote>
+<p>鱼和熊掌不可兼得</p>
+</blockquote>
+<p>也是十月份，辅导员老师在群里发了一个消息。那是一张图片，是全国大学生系统能力大赛操作系统设计赛区域赛的技术培训会的海报。（这名字好长啊我去）</p>
+<p>观看线上培训会+上网查询相关信息后，我知道了：这个比赛的第一阶段是线上进行的，考察的是操作系统的知识，可以一个人参加，能加综测分。这简直是为我量身定做的啊：不爱出门且有点内向的考虑保研的计算机类学生。</p>
+<p>于是我决定，要参加，就当玩了。不必得奖，重在学习。</p>
+<p>直到期中考试结束，我开始仔细研究这个比赛的报名，发现需要有至少一名指导老师。我一下子就懵住了。难道要我去主动联系一位指导老师吗？这对我来是简直是天大的难题啊。（因为我不是很擅长社交之类的事情</p>
+<p>经过简单地询问AI，我觉得可以试着问问辅导员老师，只需要挂名，不需要花费老师过多时间。<br>但舍友又提醒我了，指导老师可能会涉及到相关责任的问题，这并不好办。经过慎重考虑……我没想出来结果。<br><br><br>正当我还在考虑的时候，大创项目的老师回信了。我被入选了。<br><br><br>大创老师还提醒我们，说要想真正学到东西、做好项目，就需要投入大量时间。<br><br><br>我彻底懵了。</p>
+<p>我知道，大创项目确实需要很多的时间与精力的投入，才能真的做好。<br>但那个操作系统设计大赛呢？</p>
+<p>我陷入了短暂的思考。</p>
+<p>为什么说是短暂的思考呢？<br>因为我很快得到了答案。</p>
+<p>操作系统设计大赛涉及到指导老师，这太消耗我的心力了。另一方面我刚被大创老师同意入选，大创是一定要做好的。我怕我忙不过来。</p>
+<p>于是我决定放弃操作系统设计大赛。</p>
+<p>我也学会了：鱼和熊掌不可兼得。<br><br></p>
+<h2 id="三、学习与进步"><a href="#三、学习与进步" class="headerlink" title="三、学习与进步"></a>三、学习与进步</h2><p>老师说我基本零基础，有些东西要自己学自己练<br>然后给了我一个学习路径<br>那还说啥了，学呗<br><a target="_blank" rel="noopener" href="https://space.bilibili.com/1567748478/lists/358497?type=series">李沐B站主页</a><br><a target="_blank" rel="noopener" href="https://zh-v2.d2l.ai/index.html">《动手深度学习》</a><br><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">另外还有廖雪峰的Python教程</a></p>
+<p>这里是我第一次上手尝试CUDA，Conda，Jupyter，PyTorch，都挺酷的，有点意思</p>
+<h3 id="1-下载与安装"><a href="#1-下载与安装" class="headerlink" title="1.下载与安装"></a>1.下载与安装</h3><p>我单方面宣布，配置环境是最难的一步</p>
+<p>一开始，我下载了各个工具，还试了一下，能跑。<br>后来某一天，突然报错了，说找不到<code>d2l</code>库的文件。我问AI，AI说问题可能是我用的<code>d2l</code>库太新了，不兼容。我按着AI的指引，把<code>d2l</code>从新版本<code>1.0.3</code>换成李沐老师录制课程时用的老版本了。又报错。我开始把一些东西卸载，安装，卸载，安装。无果。</p>
+<p>我开始不相信AI。于是我又<code>Conda</code>新建环境，按着网上几个博客的教程，又尝试了一下安装。试了一下，还行，能跑。<br>后来某一天，又报错了。AI说是我电脑GPU太新了，而下载的<code>PyTorch</code>又太老了，不能用。<br><br><br>（我以为的）当前问题是：<br>国内源没有适合我电脑GPU的<code>PyTorch</code>新版本<br>官方源网络不好，很难下载</p>
+<p>于是我又尝试从官网手动下载<code>whl</code>文件、再<code>pip</code>安装<br>下载的过程中，依旧很慢。<br>但我突然想起来，之前我用的都是校园网，我可以尝试一下手机的个人热点啊。于是很快就下载完了。这时候我就又突然意识到，可能<code>pip</code>下载也可以用手机热点，只是我之前没尝试……所以问题核心可能并非在于手动or自动下载，而是网络的快慢（<br>在我尝试安装的时候，不小心弄错了，自动从清华源下载了。但是下载成功了。为啥啊？我以为国内源没有适合我电脑GPU的<code>PyTorch</code>新版本啊？<br>原来我又错了。国内源其实是有<code>PyTorch</code>新版本的，只是需要我来详细指定版本，如发布日期、CUDA版本、Python版本、操作系统等。比如我下载的是<code>torch-2.10.0.dev20251017+cu128-cp310-cp310-win_amd64.whl</code><br>然后我又随便跑了个模型，发现成功了，能跑。我就又反应过来，可能d2l版本并不重要，新的1.0.3也可以。但当初为什么会报错呢？或许是玄学吧（</p>
+<p>总结就大概是这样吧：<br><a href="安装pytorch_上下.png" data-fancybox="gallery" data-caption="安装pytorch"><br>  <img src="安装pytorch_上下.png" width="50%" alt="安装pytorch"><br></a></p>
+<p><small><i>然鹅这两天我又突然发现，d2l的jupyter代码运行依然出错。可能是d2l的版本不同、函数名不同，所以不能正常运行罢</i></small></p>
+<h3 id="2-不断进步"><a href="#2-不断进步" class="headerlink" title="2.不断进步"></a>2.不断进步</h3><p>系统性的学习真好啊<br>这应该是上大学以来，我第一次尝试在网上系统性地学点什么。李沐老师讲的也好，设计的也好。感恩。伟大的互联网精神</p>
+<h3 id="3-戛然而止"><a href="#3-戛然而止" class="headerlink" title="3.戛然而止"></a>3.戛然而止</h3><p>大一上的期末考试结束了，而我早已买了飞机票，准备起飞<br>但临近期末的时候，我们接到老师的通知，说是计划在考后进行一次线上会议，交流大家的学习进展。<br>就这样，带着一丝紧张和不安，我飞回了家</p>
+<p>但是没过几天，老师又在群里发了消息<br>老师说，项目最终未能入选学校的正式立项。<br>老师在群里鼓励我们，说如果之后还有兴趣继续钻研，依然欢迎一起探索。<br>那还说啥了<br>“收到，谢谢老师”</p>
+<h3 id="4-或许，就这么结束了？"><a href="#4-或许，就这么结束了？" class="headerlink" title="4.或许，就这么结束了？"></a>4.或许，就这么结束了？</h3><p>似乎是就这么结束了<br>但我觉得这个项目的想法明明蛮有意思的啊，毕竟它涉及到了多模态的AI模型和具体的硬件实体。<br>或许学校的要求更高一些吧<br>不过说真的，这我就很知足了<br>因为我去看了那个李沐老师的课，这我是学到真东西了，像是Python语法，Conda的用法，深度学习的一些理论等等</p>
+<p>总而言之呢，这“第一次”的尝试，虽然没有什么成果，但还是让我学到了很多。不管是直接的知识、经验，还是潜在的工程思维、合作意识，都让我收获颇丰</p>
+<p>感谢，感恩，感激</p>
+<p> |･ω･｀)<br><br><br> <small><i>P.S.语言风格前后可能有一些不一样，因为这篇博客是我前后写了好几次的，而每次写的是不同的部分</i></small></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/02/16/%E5%B0%9D%E8%AF%95%E5%AF%B9%E5%B0%8F%E5%8C%BA%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E6%8B%9F/" title="尝试对小区车牌识别系统的模拟"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">尝试对小区车牌识别系统的模拟</div></div><div class="info-2"><div class="info-item-1">突发奇想的产物</div></div></div></a><a class="pagination-related" href="/2026/01/02/%E5%BE%AE%E4%BF%A1%E4%B8%8Eemoji/" title="微信与emoji"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">微信与emoji</div></div><div class="info-2"><div class="info-item-1">震惊！计算机类大一学生发现国民级软件的bug！这个软件你一定也用过！</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">影灭</div><div class="author-info-description">去码头整点薯条  :P</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%89%93%E5%BC%80%E6%96%B0%E7%9A%84%E5%A4%A7%E9%97%A8"><span class="toc-text">一、打开新的大门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%B1%BC%E5%92%8C%E7%86%8A%E6%8E%8C"><span class="toc-text">二、鱼和熊掌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AD%A6%E4%B9%A0%E4%B8%8E%E8%BF%9B%E6%AD%A5"><span class="toc-text">三、学习与进步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="toc-text">1.下载与安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8D%E6%96%AD%E8%BF%9B%E6%AD%A5"><span class="toc-text">2.不断进步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%88%9B%E7%84%B6%E8%80%8C%E6%AD%A2"><span class="toc-text">3.戛然而止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%88%96%E8%AE%B8%EF%BC%8C%E5%B0%B1%E8%BF%99%E4%B9%88%E7%BB%93%E6%9D%9F%E4%BA%86%EF%BC%9F"><span class="toc-text">4.或许，就这么结束了？</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 影灭</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"data-mapping":"title"}
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'Juster955/Juster955.github.io',
+      'data-repo-id': 'R_kgDOQnjVhQ',
+      'data-category-id': 'DIC_kwDOQnjVhc4DBGWy',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-ribbon.min.js" size="120" alpha="0.35" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

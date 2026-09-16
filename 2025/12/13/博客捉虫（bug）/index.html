@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>博客捉虫（bug） | 影灭的博客</title><meta name="author" content="影灭"><meta name="copyright" content="影灭"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一天我心血来潮，想给我博客在github库的页面，加一个README.md">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客捉虫（bug）">
+<meta property="og:url" content="https://juster955.github.io/2025/12/13/%E5%8D%9A%E5%AE%A2%E6%8D%89%E8%99%AB%EF%BC%88bug%EF%BC%89/index.html">
+<meta property="og:site_name" content="影灭的博客">
+<meta property="og:description" content="一天我心血来潮，想给我博客在github库的页面，加一个README.md">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://juster955.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2025-12-13T14:53:56.000Z">
+<meta property="article:modified_time" content="2026-09-16T15:34:37.896Z">
+<meta property="article:author" content="影灭">
+<meta property="article:tag" content="GitHub-Pages">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://juster955.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "博客捉虫（bug）",
+  "url": "https://juster955.github.io/2025/12/13/%E5%8D%9A%E5%AE%A2%E6%8D%89%E8%99%AB%EF%BC%88bug%EF%BC%89/",
+  "image": "https://juster955.github.io/img/butterfly-icon.png",
+  "datePublished": "2025-12-13T14:53:56.000Z",
+  "dateModified": "2026-09-16T15:34:37.896Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "影灭",
+      "url": "https://juster955.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://juster955.github.io/2025/12/13/%E5%8D%9A%E5%AE%A2%E6%8D%89%E8%99%AB%EF%BC%88bug%EF%BC%89/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '博客捉虫（bug）',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style>#sidebar .avatar-img,.card-info .avatar-img{display:none!important;}</style><style> /*对于电脑端和手机端，设置一下不同的index_img*/ /* 电脑端用 index_bg.jpg（默认） */ /* 手机端覆盖为 index_mobile_bg.jpg */
+/* 另外这里也用CDN jsDelivr 的镜像gcore.jsdelivr.net*/ @media screen and (max-width: 768px) { .page:not(.post) #page-header {             /* 这里的 not(.post) 是为了排除文章页，让文章页的顶部大图不受影响 */ background-image: url(https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_mobile_bg.jpg) !important; } } </style><meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-color: #a6e4ff;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/default_post_img_v2.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">影灭的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">博客捉虫（bug）</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">博客捉虫（bug）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-12-13T14:53:56.000Z" title="发表于 2025-12-13 14:53:56">2025-12-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-16T15:34:37.896Z" title="更新于 2026-09-16 15:34:37">2026-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%8E%A2%E7%B4%A2/">技术探索</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><strong>时间经过</strong>: 2025.12.10-2025.12.12</p>
+<hr>
+<p>一天我心血来潮，想给我博客在github库的页面，加一个README.md<br>谁成想，一捣鼓就出问题，而且越捣鼓问题越多（倒<br>我在hexo文件夹根目录新建了一个文件，重命名为<code>README.md</code>，写了几句话，照常<code>hexo d</code>，发现github库的页面并没有显示我新写的<code>readme</code><br>为啥呢？<br>我在AI的帮助下，输入了<code>git status</code>。<br>原来是整个<code>hexo</code>文件夹已经<code>git init</code>初始化了一个本地仓库，但还没做过<code>git commit</code>。一直以来<code>hexo d</code>部署的都是hexo自动构建并推送的<code>public/网站文件</code>，而博客源代码并没有推送到仓库。<br>于是接下来我就在AI的帮助下，开始尝试<code>git commit</code>和<code>git push</code></p>
+<p>但这时候，问题又出现了<br>我的远程仓库是空的，没有分支，需要创建一个。<br>我尝试着把本地的<code>master</code>改名为<code>main</code>，接着尝试创建分支。<br>但这时候git又提示我，说远程已经有了<code>main</code>分支<br>又为啥呢？<br>AI说，可能是我一开始创建仓库时勾选了“使用README初始化仓库”，这会在远程main分支自动生成一个初始提交。</p>
+<p>于是我尝试着强制推送<code>git push -u origin main --force</code><br>然后AI说我博客源码与github pages自动构建服务混在一起了。<br>我便尝试着关闭对<code>main</code>的pages构建，把生成的静态网站文件推送到<code>gh-pages</code>分支，配置github pages源为<code>gh-pages</code>分支</p>
+<p>另外这里我发现了那个小机器人<code>Dependabot</code>，有一个<code>pull request</code>，我又在AI的解释下选择了<code>merge</code>。这是我第一次合并别人的拉取请求。</p>
+<p>现在基本上一切正常<br>但其实只是看起来正常</p>
+<p>我希望能保持本地和github同步，于是又问AI该如何拉取<br>在<code>git status</code>的时候，我又发现，我在本地修改了一些配置，所以git会提示我提交修改还是丢弃。<br>弄了一堆东西后，我又尝试拉取。</p>
+<p>就在我以为一切顺利的时候，我发现，我的博客404了<br>我打开github仓库的<code>action</code>，赫然发现一个红叉❌<br>我看不懂啊，我又把信息复制给AI。<br>原来是themes&#x2F;next主题的问题。它是一个git子模块，但是配置不完整<br>与此同时，在我尝试<code>hexo d</code>的时候，又发现，版本也出问题了。我之前<code>npm install</code>更新依赖了，strip-ansi包升级了，导致和一些模块的冲突。<br>在我尝试降级后，发现存在嵌套依赖。我又尝试卸载了什么东西、安装了什么东西。依旧有问题，没有改变hexo内部的依赖版本。</p>
+<p>当时是23:30。我原本打算写完readme后，23:30就美美睡觉。但现在则是看到希望之后，赫然出现了两个棘手的错误。一个我完全不曾了解过的子模块的错误，一个我再熟悉不过的版本错误。</p>
+<p>于是我死心了。<br>我打算把一切推倒重来。github的库删了重建，写好的博客.md文件复制一份，然后从头再来。<br>另外把dependabot的版本更新关掉，留着它的安全更新。<br>顺便还能学学git的相关工作流程<br>（其实也能看出来，以上我出问题的主要原因是对git不熟悉</p>
+<hr>
+<p>还有就是，我让deepseek帮我写了一个完整的流程</p>
+<blockquote>
+<p><strong>P.S.</strong> 在这之前，你应该已经：</p>
+<ul>
+<li>知道命令行是什么</li>
+<li>知道markdown是什么</li>
+<li>知道文件的后缀是什么</li>
+<li>有一个github账号</li>
+<li>已配置好本地Git到GitHub的SSH或HTTPS认证</li>
+<li>了解Git的基本操作（如 <code>clone</code>, <code>add</code>, <code>commit</code>, <code>push</code>）</li>
+</ul>
+</blockquote>
+<p>流程如下</p>
+<blockquote>
+<p>前排提醒：<br>&lt;这里是来自七个月后的更新&gt;<br>下边的部署流程是完全AI写的<br>并且当时是在我重新部署博客的语境下<br>因此并不具有普适性<br>下边的内容请各位看官自行辩证看待</p>
+</blockquote>
+<h1 id="博客部署流程"><a href="#博客部署流程" class="headerlink" title="博客部署流程"></a>博客部署流程</h1><h2 id="第一阶段：备份与准备"><a href="#第一阶段：备份与准备" class="headerlink" title="第一阶段：备份与准备"></a><strong>第一阶段：备份与准备</strong></h2><ol>
+<li><strong>备份核心数据</strong>（如果不是第一次写博客的话）：<ul>
+<li><strong>文章</strong>：复制原博客 <code>source/_posts</code> 文件夹。</li>
+<li><strong>资源</strong>：复制 <code>source/images</code> 等自定义文件。</li>
+<li><strong>个人备忘录</strong>：复制你的 <code>.txt</code> 备忘录文件夹（如果有给自己看的备忘录的话）。</li>
+<li><strong>配置</strong>：记录原 <code>_config.yml</code> 中修改过的设置（标题、作者等）。</li>
+</ul>
+</li>
+<li><strong>清理云端（关键）</strong>（如果想新建一个Github库的话）：<ul>
+<li>登录GitHub，进入旧仓库 <strong>Settings</strong>，在底部 <strong>“Danger Zone”</strong> 彻底删除仓库。</li>
+<li>立即<strong>新建一个空仓库</strong>，创建时<strong>不勾选</strong> <code>Initialize this repository with...</code> 的任何选项。</li>
+<li>一个建议的仓库名是&lt;你的用户名&gt;.github.io</li>
+</ul>
+</li>
+</ol>
+<h2 id="第二阶段：净化本地环境"><a href="#第二阶段：净化本地环境" class="headerlink" title="第二阶段：净化本地环境"></a><strong>第二阶段：净化本地环境</strong></h2><p>   <strong>卸载并重新安装Node.js</strong>：<br>    - 从系统卸载旧的Node.js（如果安装过的话）。<br>    - 安装 <strong>nvm</strong> (Node Version Manager)。<br>    - 使用 nvm 安装新的 Node.js (如 LTS 版本)。</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvm install --lts</span><br><span class="line"><span class="comment"># 或在 Windows 的 nvm 中执行：nvm install lts</span></span><br><span class="line">nvm use &lt;你安装的版本号，例如 24.12.0&gt;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="第三阶段：本地重建项目"><a href="#第三阶段：本地重建项目" class="headerlink" title="第三阶段：本地重建项目"></a><strong>第三阶段：本地重建项目</strong></h2><ol>
+<li><p><strong>初始化新博客</strong>：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npx hexo init Hexo_Blog   <span class="comment"># Hexo_Blog是文件夹的名字</span></span><br><span class="line"><span class="built_in">cd</span> Hexo_Blog              <span class="comment"># 可以换成自己喜欢的名字</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装项目依赖</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 Git 仓库并进行基础配置</span></span><br><span class="line">git init</span><br><span class="line">git config user.email <span class="string">&quot;你的GitHub邮箱&quot;</span>    <span class="comment">#双引号内改为你的邮箱</span></span><br><span class="line">git config user.name <span class="string">&quot;你的GitHub用户名&quot;</span>   <span class="comment">#双引号内改为你的用户名</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>恢复内容与配置</strong>：</p>
+<ul>
+<li>将备份的 <code>source/_posts</code> 和图片资源，复制到新项目的 <code>source/</code> 对应目录。</li>
+<li>将你的<strong>个人备忘录文件夹</strong>，复制到新的博客根目录（与 <code>_config.yml</code> 同级）。</li>
+<li>安装原来的主题（例如 <code>next</code>）：</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编辑新 <code>_config.yml</code>，填入备份的个性化设置（<code>title</code>, <code>author</code>，<code>theme: next</code> 等，<code>deploy</code> 部分先留空）。</li>
+<li>（另外主题next的_config中，scheme也可以选一个自己喜欢的。可以在后期<code>第四阶段、3.本地预览与检查</code>中本地预览的时候顺便改一改。我使用的是Gemini）</li>
+</ul>
+</li>
+<li><p><strong>配置隐私</strong>（如果有给自己看的备忘录的话）：</p>
+<ul>
+<li>在项目根目录创建或编辑 <code>.gitignore</code> 文件，确保包含以下核心规则：</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># --- 你的个人文件（请修改下方名称）---</span><br><span class="line">你的备忘录/        # 请确保这是你的文件夹名，例如“博客相关备忘录/”</span><br><span class="line">*.txt             # 可选：额外忽略所有txt文件（这个是AI给出的建议。我自己倒是没有这么做。）</span><br><span class="line"></span><br><span class="line"># --- Hexo生成文件与缓存 ---</span><br><span class="line">public/</span><br><span class="line">.deploy_git/</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line"></span><br><span class="line"># --- 项目依赖 ---</span><br><span class="line">node_modules/</span><br><span class="line"></span><br><span class="line"># --- 系统文件 ---</span><br><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>验证</strong>：执行 <code>git status --ignored</code>，你的备忘录文件夹应显示为被忽略。</li>
+</ul>
+</li>
+<li><p><strong>配置Dependabot（仅安全更新）</strong>：</p>
+<ul>
+<li>在项目根目录寻找或创建 <code>.github/dependabot.yml</code>，内容如下：</li>
+</ul>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">updates:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">package-ecosystem:</span> <span class="string">&quot;npm&quot;</span></span><br><span class="line">    <span class="attr">directory:</span> <span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="attr">schedule:</span></span><br><span class="line">      <span class="attr">interval:</span> <span class="string">&quot;weekly&quot;</span></span><br><span class="line">    <span class="attr">open-pull-requests-limit:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">groups:</span></span><br><span class="line">      <span class="attr">security-updates:</span></span><br><span class="line">        <span class="attr">applies-to:</span> <span class="string">&quot;security-updates&quot;</span></span><br><span class="line">        <span class="attr">update-types:</span> [<span class="string">&quot;security&quot;</span>]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="第四阶段：连接GitHub并部署"><a href="#第四阶段：连接GitHub并部署" class="headerlink" title="第四阶段：连接GitHub并部署"></a><strong>第四阶段：连接GitHub并部署</strong></h2><ol>
+<li><p><strong>安装部署插件</strong>：<br> hexo-deployer-git 插件将自动创建并管理<code>gh-pages</code>分支。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置部署信息并连接远程仓库</strong>(这里我用的是SSH)：</p>
+<ul>
+<li>在 <code>_config.yml</code> 末尾添加：</li>
+</ul>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:你的用户名/你的仓库名.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在终端执行，连接github远程仓库：</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:你的用户名/你的仓库名.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>本地预览与最终检查</strong>：</p>
+<ul>
+<li>为了后续方便使用hexo命令，这里我安装了hexo-cli</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 首先确保你正在使用正确的 Node.js 版本</span></span><br><span class="line">node --version</span><br><span class="line"><span class="comment"># 2. 全局安装 hexo 命令行工具</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 3. 验证安装</span></span><br><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>生成并预览</strong>：在部署前，务必在本地检查博客是否正常。</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line"><span class="comment"># 在浏览器中访问 http://localhost:4000 确认一切正常</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果git bash默认的是master的话，可以考虑将其改名为main</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将当前本地的 master 分支重命名为 main</span></span><br><span class="line">git branch -M main</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>提交源码</strong>：</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;初始提交：全新开始，包含个人笔记忽略配置&quot;</span>  <span class="comment">#这里的双引号中是一些备注。自行发挥即可</span></span><br><span class="line">git branch -M main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>部署网站</strong>：</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>启用GitHub Pages</strong></p>
+<ul>
+<li>前往仓库 <strong>Settings -&gt; Pages</strong>。</li>
+<li>在 <strong>Build and deployment -&gt; Branch</strong> 处，选择 <code>gh-pages</code> 分支，根目录 <code>/(root)</code>，保存。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>完成：等待约2分钟，访问 https:&#x2F;&#x2F;你的用户名.github.io&#x2F;仓库名 查看全新博客。如果有备忘录文件夹的话，它将仅存在于本地。</p>
+</blockquote>
+<hr>
+<p>另外我还让deepseek帮我整理了一下工作流程</p>
+<blockquote>
+<p>P.S.<br>这里有一些相关的配置，比如说Front-matter中是否需要categories是需要手动配置的，图片的路径也是事先配置好的，等等。这些配置在<code>.config</code>中都有。遇到困难时，读者自查不难（<br>就是说，上网随便搜一搜就能搜到了，加油</p>
+</blockquote>
+<p>流程如下</p>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><h2 id="第零步：同步与准备-每次开始前的习惯"><a href="#第零步：同步与准备-每次开始前的习惯" class="headerlink" title="第零步：同步与准备 (每次开始前的习惯)"></a>第零步：同步与准备 (每次开始前的习惯)</h2><p>在博客根目录 (例如<code>Hexo_Blog</code>) 打开git bash：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main    <span class="comment"># 拉取远程最新代码，保持同步</span></span><br></pre></td></tr></table></figure>
+
+<p>如果<code>git pull</code>后提示<code>package.json</code>有更新，请运行<code>npm install</code>。</p>
+<h2 id="第一步：创建新文章"><a href="#第一步：创建新文章" class="headerlink" title="第一步：创建新文章"></a>第一步：创建新文章</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;你的文章标题&quot;</span>    <span class="comment"># 文件创建在：`source/_posts/你的文章标题.md`</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第二步：编辑文章"><a href="#第二步：编辑文章" class="headerlink" title="第二步：编辑文章"></a>第二步：编辑文章</h2><p>编辑 Front-matter (文件头部的元数据)：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">xxxxx</span>                           <span class="comment">#冒号后面一定要有空格</span></span><br><span class="line"><span class="attr">date:</span> <span class="string">xxxxxx</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">xxx，</span> <span class="string">xxx</span>, <span class="string">xxx</span>]</span><br><span class="line"><span class="attr">categories:</span> [<span class="string">xxx</span>, <span class="string">xxx</span>, <span class="string">xxx</span>]</span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第三步：本地预览与调试"><a href="#第三步：本地预览与调试" class="headerlink" title="第三步：本地预览与调试"></a>第三步：本地预览与调试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<p>访问<code>http://localhost:4000</code>，仔细检查文章格式、图片、链接等是否正确。</p>
+<h2 id="第四步：部署网站-发布到线上"><a href="#第四步：部署网站-发布到线上" class="headerlink" title="第四步：部署网站 (发布到线上)"></a>第四步：部署网站 (发布到线上)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>此命令将生成的静态网站推送到 GitHub 仓库的<code>gh-pages</code>分支，GitHub Pages 会自动更新你的公开网站。</p>
+<h2 id="第五步：备份源码-重要"><a href="#第五步：备份源码-重要" class="headerlink" title="第五步：备份源码 (重要)"></a>第五步：备份源码 (重要)</h2><p>将你的文章源文件备份到 GitHub 的<code>main</code>分支。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;发布新文章：xxxxx&quot;</span>      <span class="comment"># 这里的双引号内，依旧是备注</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS."></a>PS.</h2><p>1.图片?</p>
+<p>(确保图片已放在文章同名资源夹或 source&#x2F;images&#x2F;):</p>
+<p>(1)Markdown 语法：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">图片描述</span>](<span class="link">图片文件名.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<p>(2)HTML 语法 (支持灯箱等高级效果)：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;图片名.jpg&quot;</span> <span class="attr">data-fancybox</span>=<span class="string">&quot;gallery&quot;</span> <span class="attr">data-caption</span>=<span class="string">&quot;图片描述&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;图片名.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;50%&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片描述&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.链接?</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">链接描述</span>](<span class="link">https://example.com</span>)</span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a><a class="post-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a><a class="post-meta__tags" href="/tags/GitHub-Pages/">GitHub-Pages</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/12/17/%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/" title="一些小东西"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">一些小东西</div></div><div class="info-2"><div class="info-item-1">这里记录了我做过的一些小东西。还蛮有意思的</div></div></div></a><a class="pagination-related" href="/2025/11/24/%E6%89%8B%E6%9C%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E%E6%88%91/" title="手机浏览器与我"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">手机浏览器与我</div></div><div class="info-2"><div class="info-item-1">用户是上帝</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">影灭</div><div class="author-info-description">去码头整点薯条  :P</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B"><span class="toc-text">博客部署流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%87%86%E5%A4%87"><span class="toc-text">第一阶段：备份与准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%87%80%E5%8C%96%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83"><span class="toc-text">第二阶段：净化本地环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9A%E6%9C%AC%E5%9C%B0%E9%87%8D%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">第三阶段：本地重建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%EF%BC%9A%E8%BF%9E%E6%8E%A5GitHub%E5%B9%B6%E9%83%A8%E7%BD%B2"><span class="toc-text">第四阶段：连接GitHub并部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E9%9B%B6%E6%AD%A5%EF%BC%9A%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%87%86%E5%A4%87-%E6%AF%8F%E6%AC%A1%E5%BC%80%E5%A7%8B%E5%89%8D%E7%9A%84%E4%B9%A0%E6%83%AF"><span class="toc-text">第零步：同步与准备 (每次开始前的习惯)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%88%9B%E5%BB%BA%E6%96%B0%E6%96%87%E7%AB%A0"><span class="toc-text">第一步：创建新文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E7%BC%96%E8%BE%91%E6%96%87%E7%AB%A0"><span class="toc-text">第二步：编辑文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="toc-text">第三步：本地预览与调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99-%E5%8F%91%E5%B8%83%E5%88%B0%E7%BA%BF%E4%B8%8A"><span class="toc-text">第四步：部署网站 (发布到线上)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E5%A4%87%E4%BB%BD%E6%BA%90%E7%A0%81-%E9%87%8D%E8%A6%81"><span class="toc-text">第五步：备份源码 (重要)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS"><span class="toc-text">PS.</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 影灭</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"data-mapping":"title"}
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'Juster955/Juster955.github.io',
+      'data-repo-id': 'R_kgDOQnjVhQ',
+      'data-category-id': 'DIC_kwDOQnjVhc4DBGWy',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-ribbon.min.js" size="120" alpha="0.35" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
