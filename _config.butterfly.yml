@@ -29,7 +29,7 @@ default_top_img: https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@mai
 
 
 # 整个站点的背景颜色
-background: "#1a274a"
+background: "#5ba6ff"
 
 mask:
   header: true
