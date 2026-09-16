@@ -27,6 +27,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Copy theme from node_modules
+        run: |
+          mkdir -p themes
+          cp -r node_modules/hexo-theme-butterfly themes/butterfly
+
       - name: Generate static files
         run: |
           npx hexo clean
