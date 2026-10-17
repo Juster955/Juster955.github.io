@@ -137,6 +137,9 @@ inject:
         }
       </style>'
 
+    # 为了写latex数学公式而写一点配置
+    - <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
 canvas_ribbon:
   enable: true
   size: 120
@@ -185,3 +188,9 @@ giscus:
     dark: dark
   option:
     data-mapping: title
+
+# 为了写latex数学公式而写一点配置
+math:
+  enable: true
+  per_page: false
+  engine: mathjax # 推荐用 mathjax，对多行公式兼容更好
