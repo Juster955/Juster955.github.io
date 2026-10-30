@@ -1,0 +1,328 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>dotfile配置 | 影灭的博客</title><meta name="author" content="影灭"><meta name="copyright" content="影灭"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我的第一篇教程向文章">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dotfile配置">
+<meta property="og:url" content="https://juster955.github.io/2026/10/30/dotfile%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="影灭的博客">
+<meta property="og:description" content="我的第一篇教程向文章">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://juster955.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-10-30T22:41:02.000Z">
+<meta property="article:modified_time" content="2026-10-30T15:15:25.983Z">
+<meta property="article:author" content="影灭">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://juster955.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "dotfile配置",
+  "url": "https://juster955.github.io/2026/10/30/dotfile%E9%85%8D%E7%BD%AE/",
+  "image": "https://juster955.github.io/img/butterfly-icon.png",
+  "datePublished": "2026-10-30T22:41:02.000Z",
+  "dateModified": "2026-10-30T15:15:25.983Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "影灭",
+      "url": "https://juster955.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://juster955.github.io/2026/10/30/dotfile%E9%85%8D%E7%BD%AE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'dotfile配置',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style>#sidebar .avatar-img,.card-info .avatar-img{display:none!important;}</style><style> /*对于电脑端和手机端，设置一下不同的index_img*/ /* 电脑端用 index_bg.jpg（默认） */ /* 手机端覆盖为 index_mobile_bg.jpg */
+/* 另外这里也用CDN jsDelivr 的镜像gcore.jsdelivr.net*/ @media screen and (max-width: 768px) { .page:not(.post) #page-header {             /* 这里的 not(.post) 是为了排除文章页，让文章页的顶部大图不受影响 */ background-image: url(https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/index_mobile_bg.jpg) !important; } } </style><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-color: #a6e4ff;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://gcore.jsdelivr.net/gh/Juster955/Juster955.github.io@main/source/images/default_post_img_v2.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">影灭的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">dotfile配置</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/next/"><i class="fa-fw fas fa-flag-checkered"></i><span> 接下来……</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">dotfile配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-10-30T22:41:02.000Z" title="发表于 2026-10-30 22:41:02">2026-10-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-10-30T15:15:25.983Z" title="更新于 2026-10-30 15:15:25">2026-10-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%8E%A2%E7%B4%A2/">技术探索</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><strong>时间经过</strong>: 2026.10</p>
+<hr>
+<p>上学期的学期末，我在<a href="https://juster955.github.io/2026/07/12/The-Missing-Semester/">The Missing Semester</a>看见了有关dotfile的事情，知道了大概是什么</p>
+<p>这两天偶然间在QQ群看见了热心群友发的阿里云的大学生300元优惠券（感谢群友分享），于是我就想试试捣鼓一下云服务器。在这个过程中，我就想起了dotfile这件事</p>
+<p>那为什么不写篇博客呢？</p>
+<p>（这好像是我第一次写教程向的文章）</p>
+<hr>
+<h1 id="dotfile是什么"><a href="#dotfile是什么" class="headerlink" title="dotfile是什么"></a>dotfile是什么</h1><p>dotfile就是一系列以<code>.</code>开头的文件，一般是配置文件，比如<code>.zshrc</code> <code>.vimrc</code>之类的。</p>
+<h1 id="为什么要做dotfile的配置"><a href="#为什么要做dotfile的配置" class="headerlink" title="为什么要做dotfile的配置"></a>为什么要做dotfile的配置</h1><p>例如新建一个自己的个人云服务器的时候，我们发现换了一个崭新的环境，我们便有可能会苦恼于如何开荒，直至变成我们熟悉的开发环境。</p>
+<p>对于我自己来说，是在捣鼓云服务器的时候，发现默认的shell不是自己熟悉的<code>zsh</code>以及<code>oh my zsh</code>了，觉得很不习惯，于是便想起了dotfile这件事。</p>
+<p>如果做了dotfile的相关配置，我们就可以很方便的将一个新环境变成我们习惯的样子。</p>
+<h1 id="怎么做dotfile的配置"><a href="#怎么做dotfile的配置" class="headerlink" title="怎么做dotfile的配置"></a>怎么做dotfile的配置</h1><p>大体来说就是，在自己主力设备下新建<code>dotfiles</code>文件夹，把自己关心的一些配置文件移动到这里，再软链接回原位置。然后在<code>dotfiles</code>文件夹下新建git仓库，并推送到GitHub等平台。日后遇到新环境，直接<code>git clone</code>并借助自己写的脚本<code>install.sh</code>完成链接操作就好了</p>
+<p>所以<code>dotfiles</code>文件夹中一般会包括，使用说明，自己的配置文件，一些必要的脚本，等等。</p>
+<p>下面以我自己配置的过程为例，描述一下这个过程。</p>
+<h2 id="0-一点小插曲"><a href="#0-一点小插曲" class="headerlink" title="0.一点小插曲"></a>0.一点小插曲</h2><p>一开始我合计着，是不是比如换了新的电脑，把旧的主力机的东西挪过去，也要用到dotfiles。所以我还考虑到了<code>.gitconfig</code>和<code>.ssh/config</code>。</p>
+<p>但既然都换新电脑了，大概就没dotfiles那么简单了，比如我主力机是windows，如果换了个新电脑，还是不如自己手动一个个去官网下载，而不是搞一些极客但对于我来说过于复杂的自动化流程。</p>
+<p>另外我想把<code>.gitconfig</code>和<code>.ssh/config</code>也放进dotfiles的话，还涉及到用户名、邮箱、IP之类的隐私，一并推送到GitHub也不行。</p>
+<p>于是我又仔细想了想，不行。dotfiles只适合<code>.zshrc</code> <code>.vimrc</code>之类的操作上的配置，只适合个人云服务器之类的非主力、要经常开发操作的环境。</p>
+<br>
+
+<p>后来我又真的很想配置好Git用<code>vim</code>，这样就需要把<code>.gitconfig</code>也一并管理。问了AI后了解到，<code>.gitconfig</code>可以把用户名和邮箱等隐私信息写进<code>[include]</code>，然后本地再写一个<code>.gitconfig.local</code></p>
+<h2 id="1-新建dotfiles文件夹"><a href="#1-新建dotfiles文件夹" class="headerlink" title="1.新建dotfiles文件夹"></a>1.新建<code>dotfiles</code>文件夹</h2><p>建议的位置是<code>~/dotfiles</code>。</p>
+<p>而文件夹里边放什么呢？上网看了几篇别人的博客，比如这个<a target="_blank" rel="noopener" href="https://luolei.org/dotfiles-tutorial">https://luolei.org/dotfiles-tutorial</a>和这个<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/2016444351375509200">https://zhuanlan.zhihu.com/p/2016444351375509200</a></p>
+<p>于是我新建了<code>dotfiles</code>文件夹如下结构</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── README.md                     something like introduction</span><br><span class="line">├── git</span><br><span class="line">│   └── .gitconfig                from ~/.gitconfig</span><br><span class="line">├── install.sh</span><br><span class="line">└── terminal</span><br><span class="line">    └── .zshrc                    from ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>因为我也是第一次弄，所以就不弄的太复杂了，简单一点。日后有需求了也可以再改一改。</p>
+<h2 id="2-把一些配置文件挪过来"><a href="#2-把一些配置文件挪过来" class="headerlink" title="2.把一些配置文件挪过来"></a>2.把一些配置文件挪过来</h2><p>一般就是<code>mv</code>再<code>ln</code></p>
+<p>当然考虑到<code>mv</code>的危险性，也可以<code>cp</code>再<code>rm</code> <code>ln</code></p>
+<br>
+
+<p>对于我自己，一开始就先考虑到了<code>~/.zshrc</code></p>
+<p>命令如下</p>
+<p><code>mv .zshrc ~/dotfiles/terminal</code></p>
+<p><code>ln -s ~/dotfiles/terminal/.zshrc ~/.zshrc</code></p>
+<blockquote>
+<p>如果你的<code>.gitconfig</code>有东西的话，应该如下操作：非隐私部分移动到<code>~/dotfiles/git/.gitconfig</code>，而隐私部分写入<code>~/.gitconfig.local</code>。然后在<code>~/dotfiles/git/.gitconfig</code>中写入<code>[include]</code>部分。详见文末我在GitHub上的dotfiles仓库，其中有我的<code>git/.gitconfig</code>源码，供参考。</p>
+</blockquote>
+<blockquote>
+<p>为了不出现任何问题，请读一下我的<code>install.sh</code>的相关内容，然后依据自身情况，自行做出相应更改。</p>
+</blockquote>
+<h2 id="3-写README-md和install-sh"><a href="#3-写README-md和install-sh" class="headerlink" title="3.写README.md和install.sh"></a>3.写<code>README.md</code>和<code>install.sh</code></h2><h3 id="1）install-sh"><a href="#1）install-sh" class="headerlink" title="1）install.sh"></a>1）<code>install.sh</code></h3><p>我的脚本如下，仅供参考</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Because I&#x27;m not familiar with the grammer of &lt;.sh&gt; files, I use AI (actually DeepSeek) to help me to write this script.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Exit immediately if any command fails</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the absolute path of the dotfiles directory</span></span><br><span class="line">DOTFILES_DIR=<span class="string">&quot;<span class="subst">$(cd <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$&#123;BASH_SOURCE[0]&#125;</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;======================================&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;    Dotfiles Setup for Cloud Server&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;======================================&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Safe link function (backs up existing files)</span></span><br><span class="line"><span class="function"><span class="title">safe_link</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> src=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="built_in">local</span> dest=<span class="string">&quot;<span class="variable">$2</span>&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ -e <span class="string">&quot;<span class="variable">$dest</span>&quot;</span> ] &amp;&amp; [ ! -L <span class="string">&quot;<span class="variable">$dest</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Warning: Backing up existing <span class="variable">$dest</span> to <span class="variable">$&#123;dest&#125;</span>.bak&quot;</span></span><br><span class="line">        <span class="built_in">mv</span> <span class="string">&quot;<span class="variable">$dest</span>&quot;</span> <span class="string">&quot;<span class="variable">$&#123;dest&#125;</span>.bak&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">ln</span> -sf <span class="string">&quot;<span class="variable">$src</span>&quot;</span> <span class="string">&quot;<span class="variable">$dest</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Linked: <span class="variable">$dest</span> -&gt; <span class="variable">$src</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="comment"># 1. Hostname Customization (Interactive)</span></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$HOME</span>/.zshrc.local&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;~/.zshrc.local already exists, skipping hostname customization.&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">read</span> -p <span class="string">&quot;Do you want to customize the prompt hostname? (y/N): &quot;</span> DO_CUSTOM</span><br><span class="line">    <span class="keyword">if</span> [[ <span class="string">&quot;<span class="variable">$DO_CUSTOM</span>&quot;</span> =~ ^[Yy]$ ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">read</span> -p <span class="string">&quot;Enter the hostname you want to display: &quot;</span> CUSTOM_HOST</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$CUSTOM_HOST</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Empty hostname, skipping customization.&quot;</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cat</span> &gt; <span class="string">&quot;<span class="variable">$HOME</span>/.zshrc.local&quot;</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">prompt_context() &#123;</span></span><br><span class="line"><span class="string">  if [[ &quot;\$USER&quot; != &quot;root&quot; ]]; then</span></span><br><span class="line"><span class="string">    prompt_segment black default &quot;%(!.%&#123;%F&#123;yellow&#125;%&#125;.)\$USER@$CUSTOM_HOST&quot;</span></span><br><span class="line"><span class="string">  fi</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;Prompt hostname customized to: <span class="variable">$CUSTOM_HOST</span>&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Skipping prompt hostname customization.&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="comment"># 2. Install Base Software</span></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;======================================&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Updating package lists...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Installing packages...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> apt install -y zsh neofetch tree build-essential gdb p7zip-full curl git wget</span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="comment"># 3. Install Oh My Zsh (Silent mode)</span></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;<span class="variable">$HOME</span>/.oh-my-zsh&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Installing Oh My Zsh (Gitee mirror)...&quot;</span></span><br><span class="line">    git <span class="built_in">clone</span> --depth=1 https://gitee.com/mirrors/oh-my-zsh.git <span class="string">&quot;<span class="variable">$HOME</span>/.oh-my-zsh&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="comment"># 4. Install Zsh Plugins (Gitee Mirror)</span></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line">ZSH_CUSTOM=<span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;<span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Installing zsh-autosuggestions...&quot;</span></span><br><span class="line">    git <span class="built_in">clone</span> https://gitee.com/zsh-users/zsh-autosuggestions <span class="string">&quot;<span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;<span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-syntax-highlighting&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Installing zsh-syntax-highlighting...&quot;</span></span><br><span class="line">    git <span class="built_in">clone</span> https://gitee.com/zsh-users/zsh-syntax-highlighting.git <span class="string">&quot;<span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-syntax-highlighting&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="comment"># 5. Deploy .zshrc</span></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;======================================&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Deploying configurations...&quot;</span></span><br><span class="line"></span><br><span class="line">safe_link <span class="string">&quot;<span class="variable">$DOTFILES_DIR</span>/terminal/.zshrc&quot;</span> <span class="string">&quot;<span class="variable">$HOME</span>/.zshrc&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="comment"># 6. Deploy .gitconfig</span></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;======================================&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Deploying .gitconfig...&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Grab identity the machine already has (e.g. hand-written ~/.gitconfig).</span></span><br><span class="line"><span class="comment"># Use --file so include is NOT expanded: we want the raw file, not our template.</span></span><br><span class="line">EXISTING_NAME=<span class="string">&quot;&quot;</span></span><br><span class="line">EXISTING_EMAIL=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$HOME</span>/.gitconfig&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    EXISTING_NAME=<span class="string">&quot;<span class="subst">$(git config --file <span class="string">&quot;<span class="variable">$HOME</span>/.gitconfig&quot;</span> user.name 2&gt;/dev/null || true)</span>&quot;</span></span><br><span class="line">    EXISTING_EMAIL=<span class="string">&quot;<span class="subst">$(git config --file <span class="string">&quot;<span class="variable">$HOME</span>/.gitconfig&quot;</span> user.email 2&gt;/dev/null || true)</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">safe_link <span class="string">&quot;<span class="variable">$DOTFILES_DIR</span>/git/.gitconfig&quot;</span> <span class="string">&quot;<span class="variable">$HOME</span>/.gitconfig&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$HOME</span>/.gitconfig.local&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;~/.gitconfig.local already exists, skipping.&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;No ~/.gitconfig.local found, creating one.&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$EXISTING_NAME</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">read</span> -p <span class="string">&quot;Git user name [<span class="variable">$EXISTING_NAME</span>]: &quot;</span> GIT_NAME</span><br><span class="line">        GIT_NAME=<span class="string">&quot;<span class="variable">$&#123;GIT_NAME:-<span class="variable">$EXISTING_NAME</span>&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">while</span> [ -z <span class="string">&quot;<span class="variable">$GIT_NAME</span>&quot;</span> ]; <span class="keyword">do</span></span><br><span class="line">            <span class="built_in">read</span> -p <span class="string">&quot;Git user name: &quot;</span> GIT_NAME</span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$EXISTING_EMAIL</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">read</span> -p <span class="string">&quot;Git email [<span class="variable">$EXISTING_EMAIL</span>]: &quot;</span> GIT_EMAIL</span><br><span class="line">        GIT_EMAIL=<span class="string">&quot;<span class="variable">$&#123;GIT_EMAIL:-<span class="variable">$EXISTING_EMAIL</span>&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">while</span> [ -z <span class="string">&quot;<span class="variable">$GIT_EMAIL</span>&quot;</span> ]; <span class="keyword">do</span></span><br><span class="line">            <span class="built_in">read</span> -p <span class="string">&quot;Git email: &quot;</span> GIT_EMAIL</span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">cat</span> &gt; <span class="string">&quot;<span class="variable">$HOME</span>/.gitconfig.local&quot;</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[user]</span></span><br><span class="line"><span class="string">        name = $GIT_NAME</span></span><br><span class="line"><span class="string">        email = $GIT_EMAIL</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Created ~/.gitconfig.local:&quot;</span></span><br><span class="line">    <span class="built_in">cat</span> <span class="string">&quot;<span class="variable">$HOME</span>/.gitconfig.local&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Note: this file is NOT tracked by git.&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line"><span class="comment"># 7. Change default shell to zsh</span></span><br><span class="line"><span class="comment"># ======================================</span></span><br><span class="line">ZSH_BIN=<span class="string">&quot;<span class="subst">$(command -v zsh || true)</span>&quot;</span></span><br><span class="line">CURRENT_LOGIN_SHELL=<span class="string">&quot;<span class="subst">$(getent passwd <span class="string">&quot;<span class="variable">$USER</span>&quot;</span> | cut -d: -f7)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$ZSH_BIN</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;zsh not found, skipping default shell change.&quot;</span></span><br><span class="line"><span class="keyword">elif</span> [ <span class="string">&quot;<span class="variable">$CURRENT_LOGIN_SHELL</span>&quot;</span> = <span class="string">&quot;<span class="variable">$ZSH_BIN</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Default shell is already zsh, skipping.&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Changing default shell to zsh...&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;You will be asked for your password.&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;chsh must authenticate via PAM before it can modify your entry in /etc/passwd,&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;even though you are only changing your own login shell.&quot;</span></span><br><span class="line">    <span class="keyword">if</span> ! chsh -s <span class="string">&quot;<span class="variable">$ZSH_BIN</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Warning: chsh failed. You can change the shell manually later with:&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;    chsh -s <span class="variable">$ZSH_BIN</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;======================================&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Setup Complete! Please run: source ~/.zshrc&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;======================================&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2）README-md"><a href="#2）README-md" class="headerlink" title="2）README.md"></a>2）<code>README.md</code></h3><p>我的说明如下，仅供参考</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">Because I&#x27;m afraid of somgthing wrong about the encoding-ways such as UTF-8 and GBK, I decide to write my `README.md` in English. Though it is some of tough for me, it&#x27;s still a little fun and valuable.</span><br><span class="line"></span><br><span class="line">It&#x27;s the first time for me to write `README.md` in English, haha</span><br><span class="line"></span><br><span class="line"># My dotfiles</span><br><span class="line"></span><br><span class="line">## Description of files here</span><br><span class="line">```text</span><br><span class="line">.</span><br><span class="line">├── README.md                     something like introduction</span><br><span class="line">├── git</span><br><span class="line">│   └── .gitconfig                from ~/.gitconfig</span><br><span class="line">├── install.sh</span><br><span class="line">└── terminal</span><br><span class="line">    └── .zshrc                    from ~/.zshrc</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">## Introduction to the file `install.sh`</span><br><span class="line"></span><br><span class="line">&gt; Because I&#x27;m not familiar with the grammer of &lt;.sh&gt; files, I use AI (actually DeepSeek) to help me to write this script.</span><br><span class="line"></span><br><span class="line">(When the script is trying to execute commend `ln`, if there have been a file in the destination, the script will rename it as `&#123;originalName&#125;.bak`. And the script will always execute the commend `ln` with the flag of `-sf`.)</span><br><span class="line">(The script is written mainly for the scene that I am trying to use a new cloud server.)</span><br><span class="line"></span><br><span class="line">- The script will ask the users whether to use a customised hostname in the prompt. (Won&#x27;t change the real hostname.) Because I don&#x27;t like the default hostname of the cloud machine which I get from the cloud company</span><br><span class="line">- The script will `sudo apt update` and then `sudo apt install -y zsh neofetch tree build-essential gdb p7zip-full curl git wget`, because I think they are necessary for me.</span><br><span class="line">- The script will install `Oh My Zsh` from Gitee, because I like it. (Gitee for the problem of network fluctuation. At first I tried GitHub, but it failed in my Alibaba Cloud Server)</span><br><span class="line">- The script will install zsh plugins `zsh-autosuggestions` and `zsh-syntax-highlighting` from Gitee, because I suppose they are necessary for me. (Gitee for the problem of network fluctuation, maybe. I also forget the reason why I chose Gitee at first.) (update: Yes, it&#x27;s necessary for my machine)</span><br><span class="line">- The script will ask about your name and email and write them into the file `~/.gitconfig.local`, which won&#x27;t be tracked by dotfiles, if the script don&#x27;t find the existed name and email in the machine. And then the script will link the file `~/.gitconfig`, whilch will include `~/.gitconfig.local`.</span><br><span class="line">- The script will link the file `~/.zshrc`</span><br><span class="line">- The script will try to change the default shell to zsh, which may need you to type your password</span><br><span class="line"></span><br><span class="line">## How to use it</span><br><span class="line"></span><br><span class="line">### A new machine</span><br><span class="line">```bash</span><br><span class="line">cd</span><br><span class="line">    # I like to put the director &lt;dotfiles&gt; in home.</span><br><span class="line">```</span><br><span class="line">```bash</span><br><span class="line">git clone https://github.com/Juster955/dotfiles.git</span><br><span class="line">    # Maybe need to write your name and e-mail address for the first time.</span><br><span class="line">```</span><br><span class="line">```</span><br><span class="line">./dotfiles/install.sh</span><br><span class="line">    # execute the &lt;install.sh&gt;</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">### Change something in my main PC</span><br><span class="line">- if change the content of dotfiles：</span><br><span class="line">  - `vim` to change the file in `~/dotfiles`</span><br><span class="line">- if download new softwares:</span><br><span class="line">  - change the `install.sh`</span><br><span class="line">- if add new dotfiles</span><br><span class="line">  - `mv` to the director of `~/dotfiles`</span><br><span class="line">  - `ln` to the original place</span><br><span class="line">  - change the deploy part in the tail of `install.sh`</span><br><span class="line">  - `git commit` and `push`</span><br><span class="line">&gt; remember to check if there are private contents before `git add`</span><br><span class="line"></span><br><span class="line">### Update dotfiles in new machines</span><br><span class="line">`git pull origin main`</span><br><span class="line">`cd`</span><br><span class="line">`./dotfiles/install.sh`</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-用git管理仓库"><a href="#4-用git管理仓库" class="headerlink" title="4.用git管理仓库"></a>4.用<code>git</code>管理仓库</h2><p>记得写<code>.gitignore</code>。<br>这是AI建议的相关部分，和我自己后填上去的一行</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 绝对不要上传任何私钥！</span><br><span class="line">*.pem</span><br><span class="line">*.key</span><br><span class="line">id_*</span><br><span class="line"></span><br><span class="line">.gitconfig.local</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>去GitHub新建一个dotfiles仓库</p>
+<p><code>git init</code></p>
+<p><code>git remote add origin &lt;你的GitHub仓库链接&gt;</code></p>
+<p><code>git branch -M main</code>（可选）</p>
+<p><code>git add .</code></p>
+<p><code>git commit</code></p>
+<p><code>git push origin main</code></p>
+<h2 id="5-长期使用"><a href="#5-长期使用" class="headerlink" title="5.长期使用"></a>5.长期使用</h2><h3 id="1）新机器"><a href="#1）新机器" class="headerlink" title="1）新机器"></a>1）新机器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br><span class="line">    <span class="comment"># 我喜欢把dotfiles文件夹放在家目录</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/Juster955/dotfiles.git</span><br><span class="line">    <span class="comment"># 新机器的话，也许这里需要输入git的用户名和邮箱</span></span><br><span class="line">./dotfiles/install.sh</span><br><span class="line">    <span class="comment"># 执行安装脚本</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2）主力机上改配置"><a href="#2）主力机上改配置" class="headerlink" title="2）主力机上改配置"></a>2）主力机上改配置</h3><ul>
+<li>如果是改写配置文件：<ul>
+<li>去<code>~/dotfiles</code>文件夹下<code>vim</code>改写</li>
+</ul>
+</li>
+<li>如果是下载了新软件<ul>
+<li>微改一下<code>install.sh</code></li>
+</ul>
+</li>
+<li>如果是要新增由dotfiles管理的配置文件<ul>
+<li><code>mv</code>到dotfiles文件夹</li>
+<li><code>ln</code>到原位置</li>
+<li>修改<code>install.sh</code>最后的部署配置部分与<code>README.md</code>的相关部分</li>
+<li>本地git提交与推送。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>记得<code>git add</code>之前一定要先看看有没有隐私内容</p>
+</blockquote>
+<h3 id="3）新机器上更新配置"><a href="#3）新机器上更新配置" class="headerlink" title="3）新机器上更新配置"></a>3）新机器上更新配置</h3><p><code>cd ~/dotfiles</code></p>
+<p><code>git pull origin main</code></p>
+<p><code>cd</code></p>
+<p><code>./dotfiles/install.sh</code></p>
+<br>
+
+<blockquote>
+<p>另外我自己的仓库在这里<br><a target="_blank" rel="noopener" href="https://github.com/Juster955/dotfiles">https://github.com/Juster955/dotfiles</a></p>
+</blockquote>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/10/17/MoeCTF2026/" title="MoeCTF2026"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">MoeCTF2026</div></div><div class="info-2"><div class="info-item-1">入学一年后再试MoeCTF</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">影灭</div><div class="author-info-description">去码头整点薯条  :P</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dotfile%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">dotfile是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9Adotfile%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">为什么要做dotfile的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%81%9Adotfile%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">怎么做dotfile的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E4%B8%80%E7%82%B9%E5%B0%8F%E6%8F%92%E6%9B%B2"><span class="toc-text">0.一点小插曲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%B0%E5%BB%BAdotfiles%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">1.新建dotfiles文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%8A%8A%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%8C%AA%E8%BF%87%E6%9D%A5"><span class="toc-text">2.把一些配置文件挪过来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%86%99README-md%E5%92%8Cinstall-sh"><span class="toc-text">3.写README.md和install.sh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89install-sh"><span class="toc-text">1）install.sh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89README-md"><span class="toc-text">2）README.md</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%94%A8git%E7%AE%A1%E7%90%86%E4%BB%93%E5%BA%93"><span class="toc-text">4.用git管理仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%95%BF%E6%9C%9F%E4%BD%BF%E7%94%A8"><span class="toc-text">5.长期使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E6%96%B0%E6%9C%BA%E5%99%A8"><span class="toc-text">1）新机器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E4%B8%BB%E5%8A%9B%E6%9C%BA%E4%B8%8A%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="toc-text">2）主力机上改配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89%E6%96%B0%E6%9C%BA%E5%99%A8%E4%B8%8A%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE"><span class="toc-text">3）新机器上更新配置</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 影灭</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"data-mapping":"title"}
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'Juster955/Juster955.github.io',
+      'data-repo-id': 'R_kgDOQnjVhQ',
+      'data-category-id': 'DIC_kwDOQnjVhc4DBGWy',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-ribbon.min.js" size="120" alpha="0.35" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
